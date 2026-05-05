@@ -246,8 +246,14 @@
     }
 
     /* ─── SECTION BASE ─── */
-    section { padding: 100px 2rem; }
-    .section-inner { max-width: 1100px; margin: 0 auto; }
+    section {
+      padding: 80px 2rem;
+      min-height: 100dvh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+    .section-inner { max-width: 1100px; width: 100%; margin: 0 auto; }
     .section-tag {
       display: inline-block; font-family: 'Lexend', sans-serif;
       font-size: 0.7rem; font-weight: 700;
@@ -1200,12 +1206,12 @@
             <p class="feat-panel-desc">New gym staff complete their entire onboarding — contracts, tax declarations, banking, induction content — before they set foot on the floor. No paper, no chasing.</p>
           </div>
           <div class="feat-items">
-            <div class="feat-item"><div class="feat-item-icon">📱</div><div class="feat-item-title">Digital Onboarding Wizard</div><div class="feat-item-desc">Guided step-by-step flow — contracts, TFN, banking, and induction in one mobile-friendly experience.</div><div class="feat-availability"><span class="avail-tag both">Both packages</span></div></div>
-            <div class="feat-item"><div class="feat-item-icon">📝</div><div class="feat-item-title">Digital Contracts &amp; E-signing</div><div class="feat-item-desc">Send, sign, and store employment contracts digitally — no printing or scanning.</div><div class="feat-availability"><span class="avail-tag both">Both packages</span></div></div>
-            <div class="feat-item"><div class="feat-item-icon">✅</div><div class="feat-item-title">Onboarding Checklists</div><div class="feat-item-desc">Customisable task lists ensure nothing gets missed — uniform collection, induction, system access — all tracked automatically.</div><div class="feat-availability"><span class="avail-tag both">Both packages</span></div></div>
-            <div class="feat-item"><div class="feat-item-icon">🔗</div><div class="feat-item-title">Google &amp; Microsoft 365 Integration</div><div class="feat-item-desc">Automatically provision workplace accounts when a new employee is onboarded.</div><div class="feat-availability"><span class="avail-tag both">Both packages</span></div></div>
-            <div class="feat-item"><div class="feat-item-icon">🌐</div><div class="feat-item-title">Contractor Onboarding</div><div class="feat-item-desc">Casual and contractor staff follow the same digital onboarding — critical for PT-heavy gym environments.</div><div class="feat-availability"><span class="avail-tag both">Both packages</span></div></div>
-            <div class="feat-item"><div class="feat-item-icon">📚</div><div class="feat-item-title">Induction Content</div><div class="feat-item-desc">Deliver branded induction modules, WHS policies, and training materials as part of the onboarding flow.</div><div class="feat-availability"><span class="avail-tag both">Both packages</span></div></div>
+            <div class="feat-item"><div class="feat-item-icon">📱</div><div class="feat-item-title">Digital Onboarding Wizard</div><div class="feat-item-desc">Guided step-by-step flow — contracts, TFN, banking, and induction in one mobile-friendly experience.</div></div>
+            <div class="feat-item"><div class="feat-item-icon">📝</div><div class="feat-item-title">Digital Contracts &amp; E-signing</div><div class="feat-item-desc">Send, sign, and store employment contracts digitally — no printing or scanning.</div></div>
+            <div class="feat-item"><div class="feat-item-icon">✅</div><div class="feat-item-title">Onboarding Checklists</div><div class="feat-item-desc">Customisable task lists ensure nothing gets missed — uniform collection, induction, system access — all tracked automatically.</div></div>
+            <div class="feat-item"><div class="feat-item-icon">🔗</div><div class="feat-item-title">Google &amp; Microsoft 365 Integration</div><div class="feat-item-desc">Automatically provision workplace accounts when a new employee is onboarded.</div></div>
+            <div class="feat-item"><div class="feat-item-icon">🌐</div><div class="feat-item-title">Contractor Onboarding</div><div class="feat-item-desc">Casual and contractor staff follow the same digital onboarding — critical for PT-heavy gym environments.</div></div>
+            <div class="feat-item"><div class="feat-item-icon">📚</div><div class="feat-item-title">Induction Content</div><div class="feat-item-desc">Deliver branded induction modules, WHS policies, and training materials as part of the onboarding flow.</div></div>
           </div>
         </div>
 
@@ -1215,11 +1221,11 @@
             <p class="feat-panel-desc">Fair Work compliance is non-negotiable. Employment Hero keeps you protected with built-in policy management, certification tracking, and right-to-work checks — all logged and auditable.</p>
           </div>
           <div class="feat-items">
-            <div class="feat-item"><div class="feat-item-icon">📋</div><div class="feat-item-title">Policy Management</div><div class="feat-item-desc">Create, distribute, and track acknowledgement of workplace policies across all staff.</div><div class="feat-availability"><span class="avail-tag both">Both packages</span></div></div>
-            <div class="feat-item"><div class="feat-item-icon">🪪</div><div class="feat-item-title">VEVO Right-to-Work Checks</div><div class="feat-item-desc">Automatically verify visa status for international staff — critical for franchises employing working holiday visa holders.</div><div class="feat-availability"><span class="avail-tag both">Both packages</span></div></div>
-            <div class="feat-item"><div class="feat-item-icon">🏆</div><div class="feat-item-title">Certification Tracking</div><div class="feat-item-desc">Track first aid, PT certifications, and industry licences — with automatic expiry reminders.</div><div class="feat-availability"><span class="avail-tag both">Both packages</span></div></div>
-            <div class="feat-item"><div class="feat-item-icon">📁</div><div class="feat-item-title">Template Library</div><div class="feat-item-desc">Fair Work-compliant contract templates, letters, and HR forms — pre-built and ready to use.</div><div class="feat-availability"><span class="avail-tag both">Both packages</span></div></div>
-            <div class="feat-item"><div class="feat-item-icon">⚠️</div><div class="feat-item-title">Incident Reporting</div><div class="feat-item-desc">Log and manage workplace incidents digitally with a complete audit trail.</div><div class="feat-availability"><span class="avail-tag both">Both packages</span></div></div>
+            <div class="feat-item"><div class="feat-item-icon">📋</div><div class="feat-item-title">Policy Management</div><div class="feat-item-desc">Create, distribute, and track acknowledgement of workplace policies across all staff.</div></div>
+            <div class="feat-item"><div class="feat-item-icon">🪪</div><div class="feat-item-title">VEVO Right-to-Work Checks</div><div class="feat-item-desc">Automatically verify visa status for international staff — critical for franchises employing working holiday visa holders.</div></div>
+            <div class="feat-item"><div class="feat-item-icon">🏆</div><div class="feat-item-title">Certification Tracking</div><div class="feat-item-desc">Track first aid, PT certifications, and industry licences — with automatic expiry reminders.</div></div>
+            <div class="feat-item"><div class="feat-item-icon">📁</div><div class="feat-item-title">Template Library</div><div class="feat-item-desc">Fair Work-compliant contract templates, letters, and HR forms — pre-built and ready to use.</div></div>
+            <div class="feat-item"><div class="feat-item-icon">⚠️</div><div class="feat-item-title">Incident Reporting</div><div class="feat-item-desc">Log and manage workplace incidents digitally with a complete audit trail.</div></div>
             <div class="feat-item"><div class="feat-item-icon">🧑‍⚖️</div><div class="feat-item-title">HR Advisory</div><div class="feat-item-desc">On-demand access to qualified HR advisors for complex situations — Award queries, performance management, unfair dismissal risk.</div><div class="feat-availability"><span class="avail-tag pro-only">Pro only</span></div></div>
           </div>
         </div>
@@ -1230,12 +1236,12 @@
             <p class="feat-panel-desc">Gym scheduling is complex — peak hours, PT bookings, group class instructors, casual floor staff. Employment Hero's rostering tools are built for this kind of dynamic workforce.</p>
           </div>
           <div class="feat-items">
-            <div class="feat-item"><div class="feat-item-icon">📅</div><div class="feat-item-title">Leave Management</div><div class="feat-item-desc">Employees submit leave via app; managers approve instantly. Balances update in real-time and sync with payroll.</div><div class="feat-availability"><span class="avail-tag both">Both packages</span></div></div>
-            <div class="feat-item"><div class="feat-item-icon">🗓️</div><div class="feat-item-title">Leave Calendar Sync</div><div class="feat-item-desc">Approved leave syncs automatically with Google Calendar or Outlook.</div><div class="feat-availability"><span class="avail-tag both">Both packages</span></div></div>
-            <div class="feat-item"><div class="feat-item-icon">🔄</div><div class="feat-item-title">Rostering &amp; Scheduling</div><div class="feat-item-desc">Build weekly rosters visually, assign shifts by role, publish to your team instantly via the employee app.</div><div class="feat-availability"><span class="avail-tag both">Both packages</span></div></div>
-            <div class="feat-item"><div class="feat-item-icon">🔁</div><div class="feat-item-title">Shift Bidding &amp; Swapping</div><div class="feat-item-desc">Employees pick up open shifts or swap with colleagues — manager approval required.</div><div class="feat-availability"><span class="avail-tag both">Both packages</span></div></div>
-            <div class="feat-item"><div class="feat-item-icon">📍</div><div class="feat-item-title">Geofenced Clock-In</div><div class="feat-item-desc">Staff clock in via app only when physically at the gym location — eliminates buddy punching.</div><div class="feat-availability"><span class="avail-tag both">Both packages</span></div></div>
-            <div class="feat-item"><div class="feat-item-icon">🖥️</div><div class="feat-item-title">Hero Time Clock</div><div class="feat-item-desc">Shared tablet-based clock-in station for reception — photo verification with PIN or facial recognition.</div><div class="feat-availability"><span class="avail-tag both">Both packages</span></div></div>
+            <div class="feat-item"><div class="feat-item-icon">📅</div><div class="feat-item-title">Leave Management</div><div class="feat-item-desc">Employees submit leave via app; managers approve instantly. Balances update in real-time and sync with payroll.</div></div>
+            <div class="feat-item"><div class="feat-item-icon">🗓️</div><div class="feat-item-title">Leave Calendar Sync</div><div class="feat-item-desc">Approved leave syncs automatically with Google Calendar or Outlook.</div></div>
+            <div class="feat-item"><div class="feat-item-icon">🔄</div><div class="feat-item-title">Rostering &amp; Scheduling</div><div class="feat-item-desc">Build weekly rosters visually, assign shifts by role, publish to your team instantly via the employee app.</div></div>
+            <div class="feat-item"><div class="feat-item-icon">🔁</div><div class="feat-item-title">Shift Bidding &amp; Swapping</div><div class="feat-item-desc">Employees pick up open shifts or swap with colleagues — manager approval required.</div></div>
+            <div class="feat-item"><div class="feat-item-icon">📍</div><div class="feat-item-title">Geofenced Clock-In</div><div class="feat-item-desc">Staff clock in via app only when physically at the gym location — eliminates buddy punching.</div></div>
+            <div class="feat-item"><div class="feat-item-icon">🖥️</div><div class="feat-item-title">Hero Time Clock</div><div class="feat-item-desc">Shared tablet-based clock-in station for reception — photo verification with PIN or facial recognition.</div></div>
           </div>
         </div>
 
@@ -1245,12 +1251,12 @@
             <p class="feat-panel-desc">Employment Hero's engagement tools give franchisees visibility into team morale and structured mechanisms to recognise, develop, and retain staff before issues compound.</p>
           </div>
           <div class="feat-items">
-            <div class="feat-item"><div class="feat-item-icon">🏅</div><div class="feat-item-title">Peer Recognition</div><div class="feat-item-desc">Shout out teammates publicly in the company feed — acknowledge wins and above-and-beyond effort.</div><div class="feat-availability"><span class="avail-tag both">Both packages</span></div></div>
-            <div class="feat-item"><div class="feat-item-icon">🎁</div><div class="feat-item-title">Hero Points Rewards</div><div class="feat-item-desc">Reward staff with points redeemable for gift cards and experiences — a tangible retention differentiator.</div><div class="feat-availability"><span class="avail-tag both">Both packages</span></div></div>
-            <div class="feat-item"><div class="feat-item-icon">📊</div><div class="feat-item-title">Engagement Surveys</div><div class="feat-item-desc">Pulse and full surveys give honest insight into team morale before small issues escalate.</div><div class="feat-availability"><span class="avail-tag both">Both packages</span></div></div>
-            <div class="feat-item"><div class="feat-item-icon">🎯</div><div class="feat-item-title">Performance Reviews</div><div class="feat-item-desc">Run structured 3-month and annual reviews — track goals, gather feedback, document outcomes.</div><div class="feat-availability"><span class="avail-tag both">Both packages</span></div></div>
-            <div class="feat-item"><div class="feat-item-icon">💬</div><div class="feat-item-title">Manager Check-ins (1:1s)</div><div class="feat-item-desc">Structured 1:1 templates keep development on track and give staff a consistent voice with management.</div><div class="feat-availability"><span class="avail-tag both">Both packages</span></div></div>
-            <div class="feat-item"><div class="feat-item-icon">🎓</div><div class="feat-item-title">Learning Management (Go1)</div><div class="feat-item-desc">Thousands of courses for CPD, compliance training, and leadership development — assign and track from your dashboard.</div><div class="feat-availability"><span class="avail-tag both">Both packages</span></div></div>
+            <div class="feat-item"><div class="feat-item-icon">🏅</div><div class="feat-item-title">Peer Recognition</div><div class="feat-item-desc">Shout out teammates publicly in the company feed — acknowledge wins and above-and-beyond effort.</div></div>
+            <div class="feat-item"><div class="feat-item-icon">🎁</div><div class="feat-item-title">Hero Points Rewards</div><div class="feat-item-desc">Reward staff with points redeemable for gift cards and experiences — a tangible retention differentiator.</div></div>
+            <div class="feat-item"><div class="feat-item-icon">📊</div><div class="feat-item-title">Engagement Surveys</div><div class="feat-item-desc">Pulse and full surveys give honest insight into team morale before small issues escalate.</div></div>
+            <div class="feat-item"><div class="feat-item-icon">🎯</div><div class="feat-item-title">Performance Reviews</div><div class="feat-item-desc">Run structured 3-month and annual reviews — track goals, gather feedback, document outcomes.</div></div>
+            <div class="feat-item"><div class="feat-item-icon">💬</div><div class="feat-item-title">Manager Check-ins (1:1s)</div><div class="feat-item-desc">Structured 1:1 templates keep development on track and give staff a consistent voice with management.</div></div>
+            <div class="feat-item"><div class="feat-item-icon">🎓</div><div class="feat-item-title">Learning Management (Go1)</div><div class="feat-item-desc">Thousands of courses for CPD, compliance training, and leadership development — assign and track from your dashboard.</div></div>
           </div>
         </div>
 
@@ -1260,12 +1266,12 @@
             <p class="feat-panel-desc">Employment Hero's recruitment tools help you attract, assess, and hire quality candidates faster — reducing the time a role sits vacant and the manual effort involved in screening.</p>
           </div>
           <div class="feat-items">
-            <div class="feat-item"><div class="feat-item-icon">📢</div><div class="feat-item-title">Job Board Integrations</div><div class="feat-item-desc">Post to Seek, Indeed, LinkedIn, and more from one place.</div><div class="feat-availability"><span class="avail-tag both">Both packages</span></div></div>
-            <div class="feat-item"><div class="feat-item-icon">🌐</div><div class="feat-item-title">Branded Careers Page</div><div class="feat-item-desc">A World Gym-branded careers page showcases your culture and open roles to fitness-focused candidates.</div><div class="feat-availability"><span class="avail-tag both">Both packages</span></div></div>
-            <div class="feat-item"><div class="feat-item-icon">🤖</div><div class="feat-item-title">SmartMatch AI</div><div class="feat-item-desc">AI candidate matching surfaces the best applicants automatically — reduces manual resume screening significantly.</div><div class="feat-availability"><span class="avail-tag both">Both packages</span></div></div>
-            <div class="feat-item"><div class="feat-item-icon">📹</div><div class="feat-item-title">AI Video Interviews</div><div class="feat-item-desc">Asynchronous video interviews with AI scoring — candidates record 24/7, you review shortlisted responses at your pace.</div><div class="feat-availability"><span class="avail-tag both">Both packages</span></div></div>
-            <div class="feat-item"><div class="feat-item-icon">📋</div><div class="feat-item-title">Reference Checks</div><div class="feat-item-desc">Automated digital reference checks — sent and collected without manual follow-up.</div><div class="feat-availability"><span class="avail-tag both">Both packages</span></div></div>
-            <div class="feat-item"><div class="feat-item-icon">✉️</div><div class="feat-item-title">Digital Offers</div><div class="feat-item-desc">Send offers digitally; onboarding kicks off automatically when the candidate signs.</div><div class="feat-availability"><span class="avail-tag both">Both packages</span></div></div>
+            <div class="feat-item"><div class="feat-item-icon">📢</div><div class="feat-item-title">Job Board Integrations</div><div class="feat-item-desc">Post to Seek, Indeed, LinkedIn, and more from one place.</div></div>
+            <div class="feat-item"><div class="feat-item-icon">🌐</div><div class="feat-item-title">Branded Careers Page</div><div class="feat-item-desc">A World Gym-branded careers page showcases your culture and open roles to fitness-focused candidates.</div></div>
+            <div class="feat-item"><div class="feat-item-icon">🤖</div><div class="feat-item-title">SmartMatch AI</div><div class="feat-item-desc">AI candidate matching surfaces the best applicants automatically — reduces manual resume screening significantly.</div></div>
+            <div class="feat-item"><div class="feat-item-icon">📹</div><div class="feat-item-title">AI Video Interviews</div><div class="feat-item-desc">Asynchronous video interviews with AI scoring — candidates record 24/7, you review shortlisted responses at your pace.</div></div>
+            <div class="feat-item"><div class="feat-item-icon">📋</div><div class="feat-item-title">Reference Checks</div><div class="feat-item-desc">Automated digital reference checks — sent and collected without manual follow-up.</div></div>
+            <div class="feat-item"><div class="feat-item-icon">✉️</div><div class="feat-item-title">Digital Offers</div><div class="feat-item-desc">Send offers digitally; onboarding kicks off automatically when the candidate signs.</div></div>
           </div>
         </div>
 
@@ -1275,12 +1281,12 @@
             <p class="feat-panel-desc">Employment Hero Payroll integrates directly with your HR plan. Run pays, manage STP Phase 2 reporting, and automate superannuation — all without leaving the platform.</p>
           </div>
           <div class="feat-items">
-            <div class="feat-item"><div class="feat-item-icon">💵</div><div class="feat-item-title">Payroll Processing</div><div class="feat-item-desc">Single-touch payroll with automated gross-to-net calculations, tax withholding, and Award interpretation built in.</div><div class="feat-availability"><span class="avail-tag both">Both packages</span></div></div>
-            <div class="feat-item"><div class="feat-item-icon">📱</div><div class="feat-item-title">Digital Payslips</div><div class="feat-item-desc">Employees receive payslips instantly via the Employment Hero app — no emailing PDFs.</div><div class="feat-availability"><span class="avail-tag both">Both packages</span></div></div>
-            <div class="feat-item"><div class="feat-item-icon">🏛️</div><div class="feat-item-title">STP Phase 2</div><div class="feat-item-desc">Fully ATO-compliant Single Touch Payroll Phase 2 — automatic lodgement with every pay run.</div><div class="feat-availability"><span class="avail-tag both">Both packages</span></div></div>
-            <div class="feat-item"><div class="feat-item-icon">🏦</div><div class="feat-item-title">Superannuation</div><div class="feat-item-desc">Automated super calculations and contributions — integrated with SuperStream for compliant lodgement.</div><div class="feat-availability"><span class="avail-tag both">Both packages</span></div></div>
-            <div class="feat-item"><div class="feat-item-icon">💸</div><div class="feat-item-title">Earned Wage Access</div><div class="feat-item-desc">Give employees access to a portion of earned wages before payday — a retention and wellbeing benefit.</div><div class="feat-availability"><span class="avail-tag both">Both packages</span></div></div>
-            <div class="feat-item"><div class="feat-item-icon">🧾</div><div class="feat-item-title">Expense Management</div><div class="feat-item-desc">Staff submit expenses via mobile; managers approve; amounts process through payroll automatically.</div><div class="feat-availability"><span class="avail-tag both">Both packages</span></div></div>
+            <div class="feat-item"><div class="feat-item-icon">💵</div><div class="feat-item-title">Payroll Processing</div><div class="feat-item-desc">Single-touch payroll with automated gross-to-net calculations, tax withholding, and Award interpretation built in.</div></div>
+            <div class="feat-item"><div class="feat-item-icon">📱</div><div class="feat-item-title">Digital Payslips</div><div class="feat-item-desc">Employees receive payslips instantly via the Employment Hero app — no emailing PDFs.</div></div>
+            <div class="feat-item"><div class="feat-item-icon">🏛️</div><div class="feat-item-title">STP Phase 2</div><div class="feat-item-desc">Fully ATO-compliant Single Touch Payroll Phase 2 — automatic lodgement with every pay run.</div></div>
+            <div class="feat-item"><div class="feat-item-icon">🏦</div><div class="feat-item-title">Superannuation</div><div class="feat-item-desc">Automated super calculations and contributions — integrated with SuperStream for compliant lodgement.</div></div>
+            <div class="feat-item"><div class="feat-item-icon">💸</div><div class="feat-item-title">Earned Wage Access</div><div class="feat-item-desc">Give employees access to a portion of earned wages before payday — a retention and wellbeing benefit.</div></div>
+            <div class="feat-item"><div class="feat-item-icon">🧾</div><div class="feat-item-title">Expense Management</div><div class="feat-item-desc">Staff submit expenses via mobile; managers approve; amounts process through payroll automatically.</div></div>
           </div>
         </div>
 
@@ -1290,12 +1296,12 @@
             <p class="feat-panel-desc">Employment Hero surfaces the workforce intelligence you need to control costs, identify compliance risks, and manage teams across one or multiple sites.</p>
           </div>
           <div class="feat-items">
-            <div class="feat-item"><div class="feat-item-icon">📈</div><div class="feat-item-title">Custom Reports</div><div class="feat-item-desc">Build and export reports on headcount, leave balances, turnover, and payroll costs.</div><div class="feat-availability"><span class="avail-tag both">Both packages</span></div></div>
-            <div class="feat-item"><div class="feat-item-icon">👁️</div><div class="feat-item-title">People Analytics Dashboard</div><div class="feat-item-desc">Visual workforce snapshot — headcount trends, engagement scores, and performance ratings in one live dashboard.</div><div class="feat-availability"><span class="avail-tag both">Both packages</span></div></div>
-            <div class="feat-item"><div class="feat-item-icon">🔮</div><div class="feat-item-title">Workforce Planning</div><div class="feat-item-desc">Model headcount scenarios, identify skills gaps, and plan for upcoming roster needs before they become urgent.</div><div class="feat-availability"><span class="avail-tag both">Both packages</span></div></div>
-            <div class="feat-item"><div class="feat-item-icon">💰</div><div class="feat-item-title">Compensation Tracking</div><div class="feat-item-desc">Track salary and wage costs by role, location, or team — essential for multi-site franchise cost management.</div><div class="feat-availability"><span class="avail-tag both">Both packages</span></div></div>
-            <div class="feat-item"><div class="feat-item-icon">😊</div><div class="feat-item-title">Engagement Analytics</div><div class="feat-item-desc">Survey results, recognition trends, and eNPS scores turn team culture into measurable, comparable data.</div><div class="feat-availability"><span class="avail-tag both">Both packages</span></div></div>
-            <div class="feat-item"><div class="feat-item-icon">✔️</div><div class="feat-item-title">Compliance Reporting</div><div class="feat-item-desc">Track policy acknowledgements, certification expiry, and incident logs — full audit trails for Fair Work.</div><div class="feat-availability"><span class="avail-tag both">Both packages</span></div></div>
+            <div class="feat-item"><div class="feat-item-icon">📈</div><div class="feat-item-title">Custom Reports</div><div class="feat-item-desc">Build and export reports on headcount, leave balances, turnover, and payroll costs.</div></div>
+            <div class="feat-item"><div class="feat-item-icon">👁️</div><div class="feat-item-title">People Analytics Dashboard</div><div class="feat-item-desc">Visual workforce snapshot — headcount trends, engagement scores, and performance ratings in one live dashboard.</div></div>
+            <div class="feat-item"><div class="feat-item-icon">🔮</div><div class="feat-item-title">Workforce Planning</div><div class="feat-item-desc">Model headcount scenarios, identify skills gaps, and plan for upcoming roster needs before they become urgent.</div></div>
+            <div class="feat-item"><div class="feat-item-icon">💰</div><div class="feat-item-title">Compensation Tracking</div><div class="feat-item-desc">Track salary and wage costs by role, location, or team — essential for multi-site franchise cost management.</div></div>
+            <div class="feat-item"><div class="feat-item-icon">😊</div><div class="feat-item-title">Engagement Analytics</div><div class="feat-item-desc">Survey results, recognition trends, and eNPS scores turn team culture into measurable, comparable data.</div></div>
+            <div class="feat-item"><div class="feat-item-icon">✔️</div><div class="feat-item-title">Compliance Reporting</div><div class="feat-item-desc">Track policy acknowledgements, certification expiry, and incident logs — full audit trails for Fair Work.</div></div>
           </div>
         </div>
       </div>
@@ -1368,20 +1374,6 @@
     <div class="cta-actions">
       <a href="mailto:partnerships@employmenthero.com" class="btn-primary">Start Your Setup →</a>
       <a href="#packages" class="btn-secondary">Review Plan Tiers</a>
-    </div>
-    <div class="contact-grid">
-      <div class="contact-card">
-        <div class="contact-card-label">Onboarding Specialist</div>
-        <div class="contact-card-value">Employment Hero Franchise Team</div>
-      </div>
-      <div class="contact-card">
-        <div class="contact-card-label">Contact</div>
-        <div class="contact-card-value">partnerships@employmenthero.com</div>
-      </div>
-      <div class="contact-card">
-        <div class="contact-card-label">Time to Live</div>
-        <div class="contact-card-value">Operational within 2 weeks</div>
-      </div>
     </div>
     <p style="margin-top:2rem; font-size:0.72rem; color:var(--muted);">Employment Hero × World Gym Australia — Franchise HR Platform. Pricing reflects World Gym network rates. Minimum monthly charges apply.</p>
   </div>
