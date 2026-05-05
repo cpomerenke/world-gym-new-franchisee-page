@@ -527,7 +527,7 @@
     }
 
     /* ─── PACKAGES ─── */
-    .packages-section { background: var(--dark2); }
+    .packages-section { background: var(--dark2); justify-content: flex-start; padding-top: 40px; }
 
     .packages-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.2rem; align-items: start; }
     .pkg-card {
@@ -1052,9 +1052,8 @@
   <div class="section-inner">
     <span class="section-tag">Performance Suite Pricing</span>
     <h2 class="section-heading">Select your Peak Performance tier</h2>
-    <p class="section-sub">Two packages, purpose-built for World Gym franchises. Both cover people management, payroll and time tracking. Choose the level of advisory support that fits your franchise.</p>
 
-    <div class="packages-grid">
+    <div class="packages-grid" style="margin-top:1.2rem;">
 
       <!-- PEAK PERFORMANCE PREMIUM -->
       <div class="pkg-card">
@@ -1073,25 +1072,14 @@
           <div class="pkg-wg-price">★ World Gym exclusive rate</div>
         </div>
         <div class="pkg-body">
-          <p class="pkg-section-label">HR highlights</p>
           <ul class="pkg-features">
             <li><span class="feat-check">✓</span>Digital onboarding, contracts &amp; e-signing</li>
             <li><span class="feat-check">✓</span>Leave management, policy library &amp; VEVO checks</li>
             <li><span class="feat-check">✓</span>Performance reviews, 360° feedback &amp; 1:1s</li>
             <li><span class="feat-check">✓</span>Engagement surveys, recognition &amp; Hero Points</li>
             <li><span class="feat-check">✓</span>Recruitment tools, SmartMatch AI &amp; job boards</li>
-            <li><span class="feat-check">✓</span>Learning Management via Go1</li>
-          </ul>
-          <p class="pkg-section-label">Payroll highlights</p>
-          <ul class="pkg-features">
-            <li><span class="feat-check">✓</span>Award interpretation &amp; automated pay runs</li>
-            <li><span class="feat-check">✓</span>STP Phase 2 &amp; SuperStream superannuation</li>
-            <li><span class="feat-check">✓</span>Digital payslips via employee app</li>
-          </ul>
-          <p class="pkg-section-label">Time &amp; Attendance highlights</p>
-          <ul class="pkg-features">
-            <li><span class="feat-check">✓</span>Rostering, shift bidding &amp; swapping</li>
-            <li><span class="feat-check">✓</span>Geofenced clock-in &amp; Hero Time Clock (tablet)</li>
+            <li><span class="feat-check">✓</span>Award interpretation, STP Phase 2 &amp; superannuation</li>
+            <li><span class="feat-check">✓</span>Rostering, geofenced clock-in &amp; Hero Time Clock</li>
           </ul>
         </div>
         <a href="#start" class="pkg-cta outline">Activate Premium</a>
