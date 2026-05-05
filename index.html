@@ -291,6 +291,36 @@
     .included-card p { font-size: 0.85rem; color: var(--muted); line-height: 1.6; }
     @media (max-width: 900px) { .included-grid { grid-template-columns: 1fr; } }
 
+    /* ─── IMPACT SECTION ─── */
+    .impact-section { background: var(--dark2); }
+    .impact-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1rem;
+    }
+    .impact-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 2rem 1.6rem;
+      text-align: left;
+    }
+    .impact-num {
+      font-family: 'Lexend', sans-serif;
+      font-size: 2.8rem; font-weight: 900;
+      color: #fff; letter-spacing: -0.03em;
+      line-height: 1; margin-bottom: 0.8rem;
+    }
+    .impact-num span { color: var(--eh-purple); }
+    .impact-title {
+      font-family: 'Lexend', sans-serif;
+      font-size: 0.95rem; font-weight: 700;
+      color: var(--text); margin-bottom: 0.4rem;
+    }
+    .impact-desc { font-size: 0.82rem; color: var(--muted); line-height: 1.5; }
+    @media (max-width: 900px) { .impact-grid { grid-template-columns: 1fr 1fr; } }
+    @media (max-width: 540px) { .impact-grid { grid-template-columns: 1fr; } }
+
     /* ─── WHY SECTION ─── */
     .why-section { background: var(--dark2); }
     .why-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: start; margin-top: 3rem; }
@@ -838,6 +868,37 @@
         </div>
         <h4>AI-Powered Recruitment</h4>
         <p>SmartMatch AI surfaces top candidates. Video interviews with automated scoring.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── IMPACT ─── -->
+<section class="impact-section" id="impact">
+  <div class="section-inner" style="text-align:center;">
+    <span class="section-tag" style="color:var(--wg-red);">Why this matters</span>
+    <h2 class="section-heading">The impact across the network</h2>
+    <p class="section-sub" style="margin:0 auto 3rem;">World Gym franchises using the Peak Performance Packages report significant operational improvements.</p>
+    <div class="impact-grid">
+      <div class="impact-card">
+        <div class="impact-num">75<span>%</span></div>
+        <div class="impact-title">Admin time recovered</div>
+        <div class="impact-desc">Per week, across onboarding, leave, and payroll</div>
+      </div>
+      <div class="impact-card">
+        <div class="impact-num">$82<span>K</span></div>
+        <div class="impact-title">Max Fair Work penalty</div>
+        <div class="impact-desc">Per contravention — compliance tools reduce your exposure</div>
+      </div>
+      <div class="impact-card">
+        <div class="impact-num">10<span>+</span></div>
+        <div class="impact-title">Hours returned weekly</div>
+        <div class="impact-desc">Time redirected to operations and members</div>
+      </div>
+      <div class="impact-card">
+        <div class="impact-num">$24<span>K</span></div>
+        <div class="impact-title">Cost to replace one employee</div>
+        <div class="impact-desc">Engagement tools reduce turnover directly</div>
       </div>
     </div>
   </div>
