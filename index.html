@@ -260,6 +260,18 @@
     }
     .section-sub { font-size: 1rem; color: var(--muted); line-height: 1.7; max-width: 560px; }
 
+    /* ─── WHY STATEMENT ─── */
+    .why-statement-section { background: var(--dark2); border-top: 1px solid var(--border); }
+    .why-statement-grid {
+      display: grid; grid-template-columns: 1fr 1.4fr; gap: 4rem; align-items: start;
+    }
+    .why-statement-left .section-heading { font-size: clamp(1.6rem, 3vw, 2.4rem); margin-top: 0.6rem; }
+    .why-statement-lead {
+      font-size: 1.05rem; color: var(--text); line-height: 1.8; margin-bottom: 1.2rem;
+    }
+    .why-statement-body { font-size: 0.95rem; color: var(--muted); line-height: 1.8; }
+    @media (max-width: 900px) { .why-statement-grid { grid-template-columns: 1fr; gap: 1.5rem; } }
+
     /* ─── WHAT'S INCLUDED ─── */
     .included-section { background: var(--dark); }
     .included-grid {
@@ -886,6 +898,22 @@
     </div>
   </div>
   <div class="scroll-indicator"><div class="scroll-line"></div></div>
+</section>
+
+<!-- ─── WHY ─── -->
+<section class="why-statement-section" id="why">
+  <div class="section-inner">
+    <div class="why-statement-grid">
+      <div class="why-statement-left">
+        <span class="section-tag" style="color:var(--wg-red);">The franchise operations partner</span>
+        <h2 class="section-heading">Built for the reality of running a gym franchise</h2>
+      </div>
+      <div class="why-statement-right">
+        <p class="why-statement-lead">Managing people in a fitness franchise is genuinely complex. Casual workforces, high turnover, shift-based rosters, Award compliance, and the pressure of running a business where your staff <em>are</em> your product — it demands more than generic HR software.</p>
+        <p class="why-statement-body">World Gym Australia selected Employment Hero as its franchise operations partner on the software front because it covers every stage of the employment lifecycle in one system — with Australian compliance infrastructure built in by default.</p>
+      </div>
+    </div>
+  </div>
 </section>
 
 <!-- ─── WHAT'S INCLUDED ─── -->
