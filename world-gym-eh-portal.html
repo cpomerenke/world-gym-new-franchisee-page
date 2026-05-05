@@ -4,38 +4,104 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>World Gym Australia × Employment Hero — Franchise HR Platform</title>
+  <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@300;400;500;600;700;800;900&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
   <style>
     :root {
-      --wg-red:       #E31837;
-      --wg-red-d:     #B8122C;
-      --wg-gold:      #C9A84C;
-      --wg-gold-l:    #F0C94A;
-      --eh-purple:    #4C3CCF;
-      --eh-purple-d:  #3728A8;
-      --eh-teal:      #00B3A4;
-      --eh-teal-d:    #009689;
-      --black:        #0A0A0A;
-      --dark:         #111118;
-      --dark2:        #1A1A26;
-      --dark3:        #22223A;
-      --card:         #1E1E2E;
-      --card2:        #252538;
-      --border:       rgba(255,255,255,0.08);
-      --text:         #F0F0F8;
+      /* Employment Hero brand */
+      --eh-purple:    #a569ff;
+      --eh-violet:    #7622d7;
+      --eh-deep:      #2d0649;
+      --eh-indigo:    #460078;
+      --eh-lavender:  #bb8eff;
+      --eh-green:     #bafc58;
+      --eh-amber:     #ffa000;
+      --eh-sky:       #40d1ff;
+      /* World Gym brand */
+      --wg-red:       #CC0000;
+      --wg-red-d:     #aa0000;
+      --wg-black:     #1a1a1a;
+      /* Backgrounds */
+      --black:        #0c0c10;
+      --dark:         #0c0c10;
+      --dark2:        #0f0f18;
+      --dark3:        #141420;
+      --card:         #16161c;
+      --card2:        #1d1d28;
+      /* UI */
+      --border:       rgba(165,105,255,0.13);
+      --text:         #fdfbff;
       --muted:        #9090A8;
       --radius:       16px;
       --radius-sm:    10px;
     }
 
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-    html { scroll-behavior: smooth; }
+    html {
+      scroll-behavior: smooth;
+      scroll-snap-type: y mandatory;
+    }
     body {
-      font-family: -apple-system, BlinkMacSystemFont, 'Inter', 'Segoe UI', sans-serif;
+      font-family: 'DM Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
       background: var(--dark);
       color: var(--text);
       min-height: 100vh;
       overflow-x: hidden;
     }
+
+    /* ─── SCROLL SNAP ─── */
+    section {
+      scroll-snap-align: start;
+      scroll-snap-stop: always;
+    }
+
+    /* ─── SCROLL NAV DOTS ─── */
+    .scroll-nav {
+      position: fixed; right: 1.4rem; top: 50%;
+      transform: translateY(-50%);
+      z-index: 300; display: flex; flex-direction: column; gap: 8px;
+    }
+    .scroll-dot {
+      width: 6px; height: 6px; border-radius: 50%;
+      background: rgba(255,255,255,0.18);
+      border: 1px solid rgba(255,255,255,0.28);
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+    .scroll-dot.active {
+      background: var(--eh-purple);
+      border-color: var(--eh-purple);
+      box-shadow: 0 0 8px rgba(165,105,255,0.55);
+      transform: scale(1.4);
+    }
+    .scroll-dot:hover:not(.active) {
+      background: rgba(165,105,255,0.5);
+      border-color: rgba(165,105,255,0.6);
+    }
+    @media (max-width: 900px) { .scroll-nav { display: none; } }
+
+    /* ─── STATS CAROUSEL ─── */
+    .hero-stats {
+      border-top: 1px solid var(--border);
+      padding-top: 2.5rem;
+      overflow: hidden;
+      animation: fadeInUp 0.7s ease 0.4s both;
+    }
+    .hero-stats-track {
+      display: flex; gap: 0;
+      animation: statsScroll 35s linear infinite;
+      width: max-content;
+    }
+    .hero-stats:hover .hero-stats-track { animation-play-state: paused; }
+    @keyframes statsScroll {
+      0%   { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
+    }
+    .hero-stat {
+      flex-shrink: 0;
+      width: 260px; padding: 0 2.8rem;
+      border-right: 1px solid var(--border);
+    }
+    .hero-stat:last-child { border-right: 1px solid var(--border); }
 
     /* ─── SCROLLBAR ─── */
     ::-webkit-scrollbar { width: 6px; }
@@ -45,7 +111,7 @@
     /* ─── NAV ─── */
     nav {
       position: fixed; top: 0; left: 0; right: 0; z-index: 200;
-      background: rgba(10,10,10,0.85);
+      background: rgba(12,12,16,0.88);
       backdrop-filter: blur(16px);
       border-bottom: 1px solid var(--border);
       height: 64px;
@@ -56,15 +122,16 @@
     .nav-brand { display: flex; align-items: center; gap: 12px; flex: 1; }
     .nav-logo-wg {
       background: var(--wg-red); color: #fff;
+      font-family: 'Lexend', sans-serif;
       font-weight: 900; font-size: 0.75rem; letter-spacing: 0.05em;
       padding: 4px 10px; border-radius: 6px;
     }
     .nav-divider { color: var(--muted); font-size: 1.1rem; }
     .nav-logo-eh { color: #fff; font-weight: 700; font-size: 0.85rem; letter-spacing: 0.02em; }
-    .nav-logo-eh span { color: var(--eh-teal); }
+    .nav-logo-eh span { color: var(--eh-purple); }
     .nav-badge {
-      background: linear-gradient(135deg, var(--wg-gold) 0%, var(--wg-gold-l) 100%);
-      color: var(--black); font-size: 0.65rem; font-weight: 800;
+      background: linear-gradient(135deg, var(--eh-purple) 0%, var(--eh-lavender) 100%);
+      color: #fff; font-size: 0.65rem; font-weight: 800;
       letter-spacing: 0.08em; text-transform: uppercase;
       padding: 3px 10px; border-radius: 999px;
     }
@@ -85,9 +152,9 @@
     .hero-bg {
       position: absolute; inset: 0;
       background:
-        radial-gradient(ellipse 70% 60% at 15% 50%, rgba(227,24,55,0.18) 0%, transparent 60%),
-        radial-gradient(ellipse 60% 60% at 80% 30%, rgba(76,60,207,0.22) 0%, transparent 60%),
-        radial-gradient(ellipse 50% 50% at 60% 80%, rgba(0,179,164,0.12) 0%, transparent 50%),
+        radial-gradient(ellipse 70% 60% at 15% 50%, rgba(204,0,0,0.18) 0%, transparent 60%),
+        radial-gradient(ellipse 60% 60% at 80% 30%, rgba(165,105,255,0.22) 0%, transparent 60%),
+        radial-gradient(ellipse 50% 50% at 60% 80%, rgba(64,209,255,0.08) 0%, transparent 50%),
         var(--dark);
     }
     .hero-grid {
@@ -107,26 +174,15 @@
       display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center;
     }
     .hero-text { text-align: left; }
-    .hero-exclusive {
-      display: inline-flex; align-items: center; gap: 8px;
-      background: rgba(201,168,76,0.12); border: 1px solid rgba(201,168,76,0.35);
-      color: var(--wg-gold-l); font-size: 0.72rem; font-weight: 700;
-      letter-spacing: 0.1em; text-transform: uppercase;
-      padding: 6px 16px; border-radius: 999px;
-      margin-bottom: 2rem; animation: fadeInDown 0.6s ease both;
-    }
-    .hero-exclusive::before {
-      content: ''; width: 6px; height: 6px; background: var(--wg-gold-l);
-      border-radius: 50%; animation: pulse 2s infinite;
-    }
     @keyframes pulse { 0%, 100% { opacity: 1; transform: scale(1); } 50% { opacity: 0.5; transform: scale(1.4); } }
     .hero-heading {
+      font-family: 'Lexend', sans-serif;
       font-size: clamp(2.4rem, 5vw, 4rem); font-weight: 900;
       line-height: 1.05; letter-spacing: -0.03em; margin-bottom: 1.5rem;
       animation: fadeInUp 0.7s ease 0.1s both;
     }
     .hero-heading .red { color: var(--wg-red); }
-    .hero-heading .teal { color: var(--eh-teal); }
+    .hero-heading .teal { color: var(--eh-sky); }
     .hero-sub {
       font-size: clamp(0.9rem, 1.8vw, 1.1rem); color: var(--muted);
       max-width: 480px; margin-bottom: 2.5rem; line-height: 1.7;
@@ -137,14 +193,14 @@
       animation: fadeInUp 0.7s ease 0.3s both;
     }
     .btn-primary {
-      background: linear-gradient(135deg, var(--wg-red) 0%, #C9162E 100%);
+      background: linear-gradient(135deg, var(--wg-red) 0%, #a80000 100%);
       color: #fff; padding: 14px 32px; border-radius: 10px;
       font-weight: 700; font-size: 0.95rem; text-decoration: none;
       display: inline-flex; align-items: center; gap: 8px;
       transition: transform .2s, box-shadow .2s;
-      box-shadow: 0 4px 24px rgba(227,24,55,0.35);
+      box-shadow: 0 4px 24px rgba(204,0,0,0.35);
     }
-    .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 8px 32px rgba(227,24,55,0.45); }
+    .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 8px 32px rgba(204,0,0,0.45); }
     .btn-secondary {
       background: rgba(255,255,255,0.06); color: var(--text);
       border: 1px solid var(--border); padding: 14px 32px;
@@ -154,77 +210,21 @@
     }
     .btn-secondary:hover { background: rgba(255,255,255,0.1); border-color: rgba(255,255,255,0.2); }
 
-    /* ─── PLATFORM PREVIEW CARD ─── */
+    /* ─── PLATFORM SCREENSHOT ─── */
     .hero-visual { animation: fadeInUp 0.8s ease 0.35s both; }
     .platform-preview {
-      background: var(--card); border: 1px solid rgba(255,255,255,0.12);
       border-radius: 18px; overflow: hidden;
-      box-shadow: 0 32px 80px rgba(0,0,0,0.6), 0 0 0 1px rgba(255,255,255,0.05);
-      transform: perspective(1200px) rotateY(-6deg) rotateX(2deg);
-      transition: transform .4s ease;
+      box-shadow: 0 32px 80px rgba(0,0,0,0.5), 0 0 0 1px rgba(255,255,255,0.06);
+      transition: transform .4s ease, box-shadow .4s ease;
     }
-    .platform-preview:hover { transform: perspective(1200px) rotateY(-2deg) rotateX(1deg); }
-    .preview-chrome {
-      background: var(--dark3); padding: 10px 16px;
-      display: flex; align-items: center; gap: 10px;
-      border-bottom: 1px solid var(--border);
-    }
-    .preview-chrome-dots { display: flex; gap: 5px; }
-    .preview-chrome-dot { width: 10px; height: 10px; border-radius: 50%; }
-    .preview-chrome-title {
-      flex: 1; text-align: center; font-size: 0.68rem; color: var(--muted);
-    }
-    .preview-body { padding: 1rem 1.2rem; }
-    .preview-greeting { font-size: 0.72rem; color: var(--muted); margin-bottom: 0.9rem; }
-    .preview-greeting span { color: var(--text); font-weight: 600; }
-    .preview-metrics {
-      display: grid; grid-template-columns: repeat(3, 1fr);
-      gap: 0.5rem; margin-bottom: 1rem;
-    }
-    .preview-metric-tile {
-      border-radius: 8px; padding: 0.7rem 0.5rem; text-align: center;
-    }
-    .preview-metric-tile.dark { background: var(--dark2); }
-    .preview-metric-tile.teal { background: rgba(0,179,164,0.1); border: 1px solid rgba(0,179,164,0.2); }
-    .preview-metric-tile.gold { background: rgba(201,168,76,0.1); border: 1px solid rgba(201,168,76,0.2); }
-    .preview-metric-num { font-size: 1.3rem; font-weight: 900; color: #fff; line-height: 1; }
-    .preview-metric-num.teal { font-size: 0.72rem; color: var(--eh-teal); }
-    .preview-metric-num.gold { color: var(--wg-gold-l); }
-    .preview-metric-label { font-size: 0.6rem; color: var(--muted); margin-top: 3px; }
-    .preview-section-label {
-      font-size: 0.63rem; font-weight: 700; text-transform: uppercase;
-      letter-spacing: 0.08em; color: var(--muted); margin-bottom: 0.5rem;
-    }
-    .preview-roster-row {
-      display: flex; align-items: center; gap: 0.6rem;
-      padding: 0.45rem 0; border-bottom: 1px solid rgba(255,255,255,0.04);
-    }
-    .preview-roster-row:last-of-type { border-bottom: none; }
-    .preview-avatar {
-      width: 24px; height: 24px; border-radius: 50%; flex-shrink: 0;
-    }
-    .preview-roster-name { font-size: 0.73rem; color: var(--text); flex: 1; }
-    .preview-shift-bar { height: 5px; border-radius: 999px; }
-    .preview-shift-time { font-size: 0.6rem; color: var(--muted); min-width: 52px; text-align: right; }
-    .preview-notification {
-      margin-top: 0.8rem;
-      background: rgba(0,179,164,0.08); border: 1px solid rgba(0,179,164,0.2);
-      border-radius: 8px; padding: 0.55rem 0.8rem;
-      display: flex; align-items: center; gap: 0.5rem;
-      font-size: 0.68rem; color: var(--eh-teal);
+    .platform-preview:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 44px 100px rgba(0,0,0,0.6), 0 0 0 1px rgba(255,255,255,0.08);
     }
 
     /* ─── HERO STATS ─── */
-    .hero-stats {
-      display: flex; gap: 0;
-      border-top: 1px solid var(--border);
-      padding-top: 2.5rem;
-      animation: fadeInUp 0.7s ease 0.4s both;
-    }
-    .hero-stat { flex: 1; max-width: 200px; padding: 0 1.5rem; border-right: 1px solid var(--border); }
-    .hero-stat:last-child { border-right: none; }
-    .hero-stat-num { font-size: 2rem; font-weight: 900; color: #fff; letter-spacing: -0.03em; }
-    .hero-stat-num span { color: var(--wg-gold-l); }
+    .hero-stat-num { font-family: 'Lexend', sans-serif; font-size: 2rem; font-weight: 900; color: #fff; letter-spacing: -0.03em; }
+    .hero-stat-num span { color: var(--eh-green); }
     .hero-stat-label { font-size: 0.75rem; color: var(--muted); margin-top: 2px; }
 
     .scroll-indicator {
@@ -249,10 +249,12 @@
     section { padding: 100px 2rem; }
     .section-inner { max-width: 1100px; margin: 0 auto; }
     .section-tag {
-      display: inline-block; font-size: 0.7rem; font-weight: 700;
-      letter-spacing: 0.1em; text-transform: uppercase; color: var(--eh-teal); margin-bottom: 1rem;
+      display: inline-block; font-family: 'Lexend', sans-serif;
+      font-size: 0.7rem; font-weight: 700;
+      letter-spacing: 0.1em; text-transform: uppercase; color: var(--eh-purple); margin-bottom: 1rem;
     }
     .section-heading {
+      font-family: 'Lexend', sans-serif;
       font-size: clamp(1.8rem, 4vw, 2.8rem); font-weight: 900;
       letter-spacing: -0.03em; line-height: 1.1; margin-bottom: 1rem;
     }
@@ -270,16 +272,16 @@
       transition: opacity .5s ease, transform .5s ease, border-color .2s;
     }
     .pain-card.visible { opacity: 1; transform: translateX(0); }
-    .pain-card:hover { border-color: rgba(227,24,55,0.4); transform: translateX(4px); }
+    .pain-card:hover { border-color: rgba(204,0,0,0.4); transform: translateX(4px); }
     .pain-icon {
       width: 40px; height: 40px; border-radius: 8px;
       display: flex; align-items: center; justify-content: center;
       font-size: 1.2rem; flex-shrink: 0;
     }
-    .pain-icon.red { background: rgba(227,24,55,0.15); }
-    .pain-icon.purple { background: rgba(76,60,207,0.15); }
-    .pain-icon.teal { background: rgba(0,179,164,0.15); }
-    .pain-icon.gold { background: rgba(201,168,76,0.15); }
+    .pain-icon.red { background: rgba(204,0,0,0.15); }
+    .pain-icon.purple { background: rgba(165,105,255,0.15); }
+    .pain-icon.teal { background: rgba(64,209,255,0.12); }
+    .pain-icon.gold { background: rgba(255,160,0,0.15); }
     .pain-card h4 { font-size: 0.9rem; font-weight: 700; margin-bottom: 0.3rem; }
     .pain-card p { font-size: 0.8rem; color: var(--muted); line-height: 1.5; }
 
@@ -294,10 +296,10 @@
       transition: opacity .5s ease, transform .5s ease;
     }
     .coverage-layer.visible { opacity: 1; transform: translateX(0); }
-    .coverage-layer.l-purple { background: rgba(76,60,207,0.15); border-color: rgba(76,60,207,0.3); }
-    .coverage-layer.l-teal   { background: rgba(0,179,164,0.12); border-color: rgba(0,179,164,0.25); }
-    .coverage-layer.l-gold   { background: rgba(201,168,76,0.10); border-color: rgba(201,168,76,0.22); }
-    .coverage-layer.l-red    { background: rgba(227,24,55,0.10); border-color: rgba(227,24,55,0.22); }
+    .coverage-layer.l-purple { background: rgba(165,105,255,0.12); border-color: rgba(165,105,255,0.28); }
+    .coverage-layer.l-teal   { background: rgba(64,209,255,0.08); border-color: rgba(64,209,255,0.2); }
+    .coverage-layer.l-gold   { background: rgba(255,160,0,0.08); border-color: rgba(255,160,0,0.2); }
+    .coverage-layer.l-red    { background: rgba(204,0,0,0.10); border-color: rgba(204,0,0,0.22); }
     .coverage-layer.l-dark   { background: rgba(255,255,255,0.04); border-color: rgba(255,255,255,0.08); }
     .coverage-layer-icon { font-size: 1.2rem; flex-shrink: 0; }
     .coverage-layer-info { flex: 1; }
@@ -307,15 +309,15 @@
       font-size: 0.62rem; font-weight: 700; padding: 2px 8px;
       border-radius: 999px; white-space: nowrap;
     }
-    .badge-purple { background: rgba(76,60,207,0.25); color: #9B8FF0; }
-    .badge-teal { background: rgba(0,179,164,0.2); color: var(--eh-teal); }
-    .badge-gold { background: rgba(201,168,76,0.2); color: var(--wg-gold-l); }
-    .badge-red { background: rgba(227,24,55,0.2); color: #F06080; }
+    .badge-purple { background: rgba(165,105,255,0.2); color: var(--eh-lavender); }
+    .badge-teal { background: rgba(64,209,255,0.15); color: var(--eh-sky); }
+    .badge-gold { background: rgba(255,160,0,0.18); color: var(--eh-amber); }
+    .badge-red { background: rgba(204,0,0,0.2); color: #ff6060; }
     .badge-dim { background: rgba(255,255,255,0.08); color: var(--muted); }
 
     .stat-highlight {
-      background: linear-gradient(135deg, rgba(227,24,55,0.1) 0%, rgba(76,60,207,0.1) 100%);
-      border: 1px solid rgba(227,24,55,0.2); border-radius: var(--radius);
+      background: linear-gradient(135deg, rgba(204,0,0,0.1) 0%, rgba(165,105,255,0.1) 100%);
+      border: 1px solid rgba(204,0,0,0.2); border-radius: var(--radius);
       padding: 1.5rem 2rem; display: flex; align-items: center; gap: 1.5rem;
     }
     .stat-highlight .big-num {
@@ -329,7 +331,7 @@
     .offer-section::before {
       content: '';
       position: absolute; top: 0; left: 0; right: 0; bottom: 0;
-      background: radial-gradient(ellipse 60% 50% at 50% 0%, rgba(201,168,76,0.08) 0%, transparent 70%);
+      background: radial-gradient(ellipse 60% 50% at 50% 0%, rgba(165,105,255,0.08) 0%, transparent 70%);
       pointer-events: none;
     }
     .partnership-grid {
@@ -349,6 +351,7 @@
     .reason-card:hover { border-color: rgba(255,255,255,0.16); transform: translateY(-2px); }
     .reason-icon { font-size: 1.6rem; margin-bottom: 0.6rem; }
     .reason-label {
+      font-family: 'Lexend', sans-serif;
       font-size: 0.75rem; font-weight: 800; color: var(--text);
       margin-bottom: 0.3rem; line-height: 1.3;
     }
@@ -368,11 +371,11 @@
       border-radius: var(--radius-sm); padding: 1rem 0.8rem; text-align: center;
       border: 1px solid; position: relative;
     }
-    .arch-module.purple { background: rgba(76,60,207,0.15); border-color: rgba(76,60,207,0.3); }
-    .arch-module.teal   { background: rgba(0,179,164,0.12); border-color: rgba(0,179,164,0.25); }
-    .arch-module.red-dim { background: rgba(0,179,164,0.08); border-color: rgba(0,179,164,0.15); }
+    .arch-module.purple { background: rgba(165,105,255,0.12); border-color: rgba(165,105,255,0.28); }
+    .arch-module.teal   { background: rgba(64,209,255,0.08); border-color: rgba(64,209,255,0.2); }
+    .arch-module.red-dim { background: rgba(64,209,255,0.06); border-color: rgba(64,209,255,0.12); }
     .arch-module-icon { font-size: 1.4rem; margin-bottom: 0.4rem; }
-    .arch-module-name { font-size: 0.75rem; font-weight: 800; color: #fff; margin-bottom: 0.2rem; }
+    .arch-module-name { font-family: 'Lexend', sans-serif; font-size: 0.75rem; font-weight: 800; color: #fff; margin-bottom: 0.2rem; }
     .arch-module-sub { font-size: 0.62rem; color: var(--muted); line-height: 1.3; }
     .arch-connector {
       display: flex; align-items: center; justify-content: center;
@@ -384,13 +387,13 @@
     }
     .arch-connector-icon { font-size: 0.7rem; color: var(--muted); padding: 0 0.4rem; }
     .arch-advisory {
-      background: rgba(201,168,76,0.08); border: 1px solid rgba(201,168,76,0.25);
+      background: rgba(255,160,0,0.08); border: 1px solid rgba(255,160,0,0.25);
       border-radius: var(--radius-sm); padding: 0.8rem 1rem;
       display: flex; align-items: center; gap: 0.7rem;
     }
     .arch-advisory-icon { font-size: 1.2rem; }
     .arch-advisory-text { flex: 1; }
-    .arch-advisory-name { font-size: 0.78rem; font-weight: 700; color: var(--wg-gold-l); }
+    .arch-advisory-name { font-size: 0.78rem; font-weight: 700; color: var(--eh-amber); }
     .arch-advisory-sub { font-size: 0.65rem; color: var(--muted); }
     .arch-advisory-badge {
       font-size: 0.6rem; font-weight: 700; padding: 2px 8px; border-radius: 999px;
@@ -410,16 +413,16 @@
     .pkg-module-strip.featured { border-color: var(--wg-red); box-shadow: 0 0 0 1px var(--wg-red); }
     .pkg-strip-name { font-size: 0.9rem; font-weight: 800; color: #fff; margin-bottom: 1rem; }
     .pkg-strip-name .accent-red { color: var(--wg-red); }
-    .pkg-strip-name .accent-purple { color: #9B8FF0; }
+    .pkg-strip-name .accent-purple { color: var(--eh-lavender); }
     .module-blocks { display: flex; flex-direction: column; gap: 0.45rem; }
     .module-block {
       display: flex; align-items: center; gap: 0.7rem;
       padding: 0.55rem 0.8rem; border-radius: 8px; font-size: 0.78rem; font-weight: 600;
     }
-    .module-block.purple { background: rgba(76,60,207,0.15); color: #9B8FF0; }
-    .module-block.teal   { background: rgba(0,179,164,0.12); color: var(--eh-teal); }
-    .module-block.clock  { background: rgba(0,179,164,0.08); color: #6ECEC7; }
-    .module-block.gold   { background: rgba(201,168,76,0.12); color: var(--wg-gold-l); }
+    .module-block.purple { background: rgba(165,105,255,0.12); color: var(--eh-lavender); }
+    .module-block.teal   { background: rgba(64,209,255,0.08); color: var(--eh-sky); }
+    .module-block.clock  { background: rgba(64,209,255,0.06); color: #85dcf0; }
+    .module-block.gold   { background: rgba(255,160,0,0.1); color: var(--eh-amber); }
     .module-block-icon { font-size: 1rem; flex-shrink: 0; }
 
     .packages-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.5rem; align-items: start; }
@@ -430,14 +433,14 @@
     }
     .pkg-card.visible { opacity: 1; transform: translateY(0); transition: opacity .5s ease, transform .5s ease, border-color .2s, box-shadow .2s; }
     .pkg-card:hover { transform: translateY(-4px); box-shadow: 0 12px 40px rgba(0,0,0,0.3); }
-    .pkg-card.featured { border-color: var(--wg-red); box-shadow: 0 0 0 1px var(--wg-red), 0 8px 32px rgba(227,24,55,0.2); transform: scale(1.02); }
+    .pkg-card.featured { border-color: var(--wg-red); box-shadow: 0 0 0 1px var(--wg-red), 0 8px 32px rgba(204,0,0,0.2); transform: scale(1.02); }
     .pkg-card.featured.visible:hover { transform: scale(1.02) translateY(-4px); }
     .pkg-featured-label { background: var(--wg-red); color: #fff; font-size: 0.65rem; font-weight: 800; letter-spacing: 0.1em; text-transform: uppercase; text-align: center; padding: 5px; }
     .pkg-header { padding: 1.8rem 1.8rem 1.5rem; border-bottom: 1px solid var(--border); }
     .pkg-tier { font-size: 0.7rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); margin-bottom: 0.5rem; }
-    .pkg-name { font-size: 1.4rem; font-weight: 900; margin-bottom: 0.8rem; }
+    .pkg-name { font-family: 'Lexend', sans-serif; font-size: 1.4rem; font-weight: 900; margin-bottom: 0.8rem; }
     .pkg-name .accent-red { color: var(--wg-red); }
-    .pkg-name .accent-purple { color: #7B6FE8; }
+    .pkg-name .accent-purple { color: var(--eh-lavender); }
     .pkg-desc { font-size: 0.8rem; color: var(--muted); line-height: 1.5; margin-bottom: 1.2rem; }
     .pkg-price { display: flex; align-items: baseline; gap: 4px; }
     .pkg-price-num { font-size: 2rem; font-weight: 900; color: #fff; }
@@ -445,15 +448,15 @@
     .pkg-price-min { font-size: 0.7rem; color: var(--muted); margin-top: 0.2rem; }
     .pkg-wg-price {
       display: inline-flex; align-items: center; gap: 6px;
-      background: rgba(201,168,76,0.1); border: 1px solid rgba(201,168,76,0.25);
+      background: rgba(255,160,0,0.1); border: 1px solid rgba(255,160,0,0.25);
       border-radius: 6px; padding: 4px 10px; margin-top: 0.6rem;
-      font-size: 0.72rem; color: var(--wg-gold-l); font-weight: 600;
+      font-size: 0.72rem; color: var(--eh-amber); font-weight: 600;
     }
     .pkg-body { padding: 1.5rem 1.8rem; }
     .pkg-section-label { font-size: 0.68rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: var(--muted); margin: 1.2rem 0 0.6rem; }
     .pkg-features { list-style: none; display: flex; flex-direction: column; gap: 0.6rem; }
     .pkg-features li { display: flex; align-items: flex-start; gap: 10px; font-size: 0.82rem; color: var(--text); line-height: 1.4; }
-    .feat-check { color: var(--eh-teal); font-size: 0.75rem; margin-top: 2px; flex-shrink: 0; }
+    .feat-check { color: var(--eh-green); font-size: 0.75rem; margin-top: 2px; flex-shrink: 0; }
     .feat-check.red { color: var(--wg-red); }
     .pkg-cta {
       display: block; margin: 1.5rem 1.8rem;
@@ -489,7 +492,7 @@
     .feat-panel.active { display: block; }
     @keyframes fadeIn { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: translateY(0); } }
     .feat-panel-header { margin-bottom: 1.5rem; }
-    .feat-panel-title { font-size: 1.4rem; font-weight: 800; margin-bottom: 0.4rem; }
+    .feat-panel-title { font-family: 'Lexend', sans-serif; font-size: 1.4rem; font-weight: 800; margin-bottom: 0.4rem; }
     .feat-panel-desc { font-size: 0.88rem; color: var(--muted); line-height: 1.6; }
     .feat-items { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-top: 1.5rem; }
     .feat-item { background: var(--dark2); border: 1px solid var(--border); border-radius: var(--radius-sm); padding: 1.2rem; }
@@ -498,8 +501,8 @@
     .feat-item-desc { font-size: 0.76rem; color: var(--muted); line-height: 1.5; }
     .feat-availability { display: flex; gap: 0.5rem; margin-top: 0.6rem; flex-wrap: wrap; }
     .avail-tag { font-size: 0.62rem; font-weight: 700; padding: 2px 7px; border-radius: 999px; letter-spacing: 0.05em; text-transform: uppercase; }
-    .avail-tag.both { background: rgba(0,179,164,0.2); color: var(--eh-teal); }
-    .avail-tag.pro-only { background: rgba(227,24,55,0.2); color: #F06080; }
+    .avail-tag.both { background: rgba(64,209,255,0.15); color: var(--eh-sky); }
+    .avail-tag.pro-only { background: rgba(204,0,0,0.2); color: #ff6060; }
 
     /* ─── ROI SECTION ─── */
     .roi-section { background: var(--dark2); }
@@ -524,10 +527,10 @@
       stroke-dashoffset: 295;
       transition: stroke-dashoffset 1.5s cubic-bezier(0.4,0,0.2,1);
     }
-    .ring-fill.teal   { stroke: var(--eh-teal); }
+    .ring-fill.teal   { stroke: var(--eh-sky); }
     .ring-fill.red    { stroke: var(--wg-red); }
-    .ring-fill.purple { stroke: #7B6FE8; }
-    .ring-fill.gold   { stroke: var(--wg-gold-l); }
+    .ring-fill.purple { stroke: var(--eh-purple); }
+    .ring-fill.gold   { stroke: var(--eh-amber); }
     .roi-ring-num {
       position: absolute; top: 50%; left: 50%;
       transform: translate(-50%, -50%);
@@ -550,11 +553,11 @@
       display: flex; align-items: center; justify-content: center;
       font-size: 1.2rem; font-weight: 900; flex-shrink: 0;
     }
-    .roi-benefit-num.red    { background: rgba(227,24,55,0.15); color: var(--wg-red); }
-    .roi-benefit-num.teal   { background: rgba(0,179,164,0.15); color: var(--eh-teal); }
-    .roi-benefit-num.purple { background: rgba(76,60,207,0.15); color: #9B8FF0; }
-    .roi-benefit-num.gold   { background: rgba(201,168,76,0.15); color: var(--wg-gold-l); }
-    .roi-benefit h4 { font-size: 0.9rem; font-weight: 700; margin-bottom: 0.3rem; }
+    .roi-benefit-num.red    { background: rgba(204,0,0,0.15); color: var(--wg-red); }
+    .roi-benefit-num.teal   { background: rgba(64,209,255,0.12); color: var(--eh-sky); }
+    .roi-benefit-num.purple { background: rgba(165,105,255,0.15); color: var(--eh-lavender); }
+    .roi-benefit-num.gold   { background: rgba(255,160,0,0.15); color: var(--eh-amber); }
+    .roi-benefit h4 { font-family: 'Lexend', sans-serif; font-size: 0.9rem; font-weight: 700; margin-bottom: 0.3rem; }
     .roi-benefit p { font-size: 0.78rem; color: var(--muted); line-height: 1.5; }
 
     /* ─── SETUP TIMELINE ─── */
@@ -568,7 +571,7 @@
     .timeline-rail {
       position: absolute; top: 21px; left: 44px; right: 44px; height: 2px;
       background: linear-gradient(90deg,
-        var(--wg-red) 0%, var(--eh-purple) 33%, var(--eh-teal) 66%, var(--wg-gold-l) 100%);
+        var(--wg-red) 0%, var(--eh-purple) 40%, var(--eh-sky) 70%, var(--eh-amber) 100%);
       z-index: 0;
     }
     .timeline-node { position: relative; z-index: 1; display: flex; flex-direction: column; align-items: center; flex: 1; }
@@ -579,11 +582,11 @@
       border: 2px solid; background: var(--dark); margin-bottom: 1rem;
     }
     .timeline-dot.n1 { border-color: var(--wg-red); color: var(--wg-red); }
-    .timeline-dot.n2 { border-color: #7B6FE8; color: #7B6FE8; }
-    .timeline-dot.n3 { border-color: var(--eh-teal); color: var(--eh-teal); }
-    .timeline-dot.n4 { border-color: var(--wg-gold-l); color: var(--wg-gold-l); }
+    .timeline-dot.n2 { border-color: var(--eh-purple); color: var(--eh-purple); }
+    .timeline-dot.n3 { border-color: var(--eh-sky); color: var(--eh-sky); }
+    .timeline-dot.n4 { border-color: var(--eh-amber); color: var(--eh-amber); }
     .timeline-step-icon { font-size: 1.4rem; margin-bottom: 0.5rem; }
-    .timeline-step-label { font-size: 0.82rem; font-weight: 700; color: var(--text); text-align: center; }
+    .timeline-step-label { font-family: 'Lexend', sans-serif; font-size: 0.82rem; font-weight: 700; color: var(--text); text-align: center; }
     .timeline-step-sub { font-size: 0.7rem; color: var(--muted); text-align: center; margin-top: 0.2rem; }
 
     .steps-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.5rem; }
@@ -603,10 +606,10 @@
     }
     .cta-section::before {
       content: ''; position: absolute; inset: 0;
-      background: radial-gradient(ellipse 60% 60% at 50% 100%, rgba(227,24,55,0.12) 0%, transparent 70%);
+      background: radial-gradient(ellipse 60% 60% at 50% 100%, rgba(204,0,0,0.12) 0%, transparent 70%);
     }
     .cta-section .section-inner { position: relative; z-index: 1; }
-    .cta-section h2 { font-size: clamp(1.8rem, 4vw, 2.8rem); font-weight: 900; margin-bottom: 1rem; }
+    .cta-section h2 { font-family: 'Lexend', sans-serif; font-size: clamp(1.8rem, 4vw, 2.8rem); font-weight: 900; margin-bottom: 1rem; }
     .cta-section p { font-size: 1rem; color: var(--muted); margin-bottom: 2.5rem; max-width: 500px; margin-left: auto; margin-right: auto; line-height: 1.6; }
     .cta-actions { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
     .contact-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; margin-top: 3rem; }
@@ -625,9 +628,7 @@
       .hero-text { text-align: center; }
       .hero-sub { margin: 0 auto 2.5rem; }
       .hero-actions { justify-content: center; }
-      .hero-stats { flex-wrap: wrap; }
-      .hero-stat { border-right: none; border-bottom: 1px solid var(--border); padding: 1rem 0; }
-      .hero-stat:last-child { border-bottom: none; }
+      .hero-stats-track { animation-duration: 25s; }
     }
     @media (max-width: 900px) {
       .why-grid, .roi-grid, .features-layout, .partnership-grid { grid-template-columns: 1fr; }
@@ -651,6 +652,9 @@
   </style>
 </head>
 <body>
+
+<!-- ─── SCROLL NAV DOTS ─── -->
+<div class="scroll-nav" id="scrollNav"></div>
 
 <!-- ─── NAV ─── -->
 <nav>
@@ -678,94 +682,77 @@
     <div class="hero-content">
       <!-- Left: text -->
       <div class="hero-text">
-        <div class="hero-exclusive">Part of your World Gym franchise — Employment Hero is your HR platform</div>
         <h1 class="hero-heading">
           Your franchise<br>
-          <span class="red">HR platform</span>,<br>
-          <span class="teal">ready to go</span>
+          <span class="red">performance</span><br>
+          <span class="teal">engine</span>
         </h1>
         <p class="hero-sub">
-          Employment Hero is the designated HR and payroll platform for World Gym Australia franchises. This guide walks you through what's included, how it's configured for your operation, and how to get set up.
+          Built for World Gym Australia, Employment Hero powers people, payroll, and compliance in one place — so you can focus on performance where it matters.
         </p>
         <div class="hero-actions">
-          <a href="#offer" class="btn-primary">What's Included ↓</a>
-          <a href="#packages" class="btn-secondary">View Plans</a>
+          <a href="#start" class="btn-primary">Begin onboarding →</a>
+          <a href="#features" class="btn-secondary">Explore capabilities</a>
         </div>
       </div>
 
-      <!-- Right: Platform preview card -->
+      <!-- Right: EH platform screenshot -->
       <div class="hero-visual">
         <div class="platform-preview">
-          <div class="preview-chrome">
-            <div class="preview-chrome-dots">
-              <div class="preview-chrome-dot" style="background:#FF5F57;"></div>
-              <div class="preview-chrome-dot" style="background:#FEBC2E;"></div>
-              <div class="preview-chrome-dot" style="background:#27C840;"></div>
-            </div>
-            <div class="preview-chrome-title">Employment Hero — World Gym</div>
-            <div style="width:42px;"></div>
-          </div>
-          <div class="preview-body">
-            <div class="preview-greeting">Good morning, <span>Sarah 👋</span></div>
-            <div class="preview-metrics">
-              <div class="preview-metric-tile dark">
-                <div class="preview-metric-num">14</div>
-                <div class="preview-metric-label">Staff active</div>
-              </div>
-              <div class="preview-metric-tile teal">
-                <div class="preview-metric-num teal" style="font-size:0.68rem; font-weight:900;">✓ READY</div>
-                <div class="preview-metric-label">Next payroll</div>
-              </div>
-              <div class="preview-metric-tile gold">
-                <div class="preview-metric-num gold">2</div>
-                <div class="preview-metric-label">Onboarding</div>
-              </div>
-            </div>
-            <div class="preview-section-label">Today's Roster</div>
-            <div class="preview-roster-row">
-              <div class="preview-avatar" style="background:linear-gradient(135deg,var(--wg-red),var(--eh-purple));"></div>
-              <div class="preview-roster-name">Sarah K.</div>
-              <div class="preview-shift-bar" style="width:50px;background:rgba(0,179,164,0.45);"></div>
-              <div class="preview-shift-time">9am – 5pm</div>
-            </div>
-            <div class="preview-roster-row">
-              <div class="preview-avatar" style="background:linear-gradient(135deg,var(--eh-purple),var(--eh-teal));"></div>
-              <div class="preview-roster-name">Mike T.</div>
-              <div class="preview-shift-bar" style="width:40px;background:rgba(76,60,207,0.55);"></div>
-              <div class="preview-shift-time">12pm – 8pm</div>
-            </div>
-            <div class="preview-roster-row">
-              <div class="preview-avatar" style="background:linear-gradient(135deg,var(--wg-gold),var(--wg-red));"></div>
-              <div class="preview-roster-name">Jessica L.</div>
-              <div class="preview-shift-bar" style="width:55px;background:rgba(201,168,76,0.45);"></div>
-              <div class="preview-shift-time">6am – 2pm</div>
-            </div>
-            <div class="preview-notification">
-              <span>✅</span>
-              <span>Pay run complete — 14 employees paid</span>
-            </div>
-          </div>
+          <img
+            src="C:/Users/CourtneyPomerenke/Downloads/Dashboard_Detailed (1).webp"
+            alt="Employment Hero platform dashboard"
+            style="width:100%; display:block; border-radius:18px;"
+          />
         </div>
       </div>
     </div>
 
-    <!-- Stats bar — full width below -->
+    <!-- Stats carousel — continuous loop -->
     <div class="hero-stats">
-      <div class="hero-stat">
-        <div class="hero-stat-num">300<span>K+</span></div>
-        <div class="hero-stat-label">Businesses trust Employment Hero</div>
-      </div>
-      <div class="hero-stat">
-        <div class="hero-stat-num">2<span>M+</span></div>
-        <div class="hero-stat-label">Employees managed on platform</div>
-      </div>
-      <div class="hero-stat">
-        <div class="hero-stat-num">75<span>%</span></div>
-        <div class="hero-stat-label">Reduction in admin time reported</div>
-      </div>
-      <div class="hero-stat">
-        <div class="hero-stat-num">4.6<span>★</span></div>
-        <div class="hero-stat-label">App Store rating from employees</div>
+      <div class="hero-stats-track">
+        <!-- Set A -->
+        <div class="hero-stat">
+          <div class="hero-stat-num">300<span>K+</span></div>
+          <div class="hero-stat-label">Businesses on the platform</div>
+        </div>
+        <div class="hero-stat">
+          <div class="hero-stat-num">2<span>M+</span></div>
+          <div class="hero-stat-label">Employees managed globally</div>
+        </div>
+        <div class="hero-stat">
+          <div class="hero-stat-num">4.6<span>★</span></div>
+          <div class="hero-stat-label">App Store rating from employees</div>
+        </div>
+        <div class="hero-stat">
+          <div class="hero-stat-num">75<span>%</span></div>
+          <div class="hero-stat-label">Less HR admin time reported</div>
+        </div>
+        <div class="hero-stat">
+          <div class="hero-stat-num">10<span>+</span></div>
+          <div class="hero-stat-label">Years built for Australian compliance</div>
+        </div>
+        <!-- Set B — duplicate for seamless loop -->
+        <div class="hero-stat">
+          <div class="hero-stat-num">300<span>K+</span></div>
+          <div class="hero-stat-label">Businesses on the platform</div>
+        </div>
+        <div class="hero-stat">
+          <div class="hero-stat-num">2<span>M+</span></div>
+          <div class="hero-stat-label">Employees managed globally</div>
+        </div>
+        <div class="hero-stat">
+          <div class="hero-stat-num">4.6<span>★</span></div>
+          <div class="hero-stat-label">App Store rating from employees</div>
+        </div>
+        <div class="hero-stat">
+          <div class="hero-stat-num">75<span>%</span></div>
+          <div class="hero-stat-label">Less HR admin time reported</div>
+        </div>
+        <div class="hero-stat">
+          <div class="hero-stat-num">10<span>+</span></div>
+          <div class="hero-stat-label">Years built for Australian compliance</div>
+        </div>
       </div>
     </div>
   </div>
@@ -940,7 +927,7 @@
 
         <!-- Supporting stat strip -->
         <div style="background:var(--card); border:1px solid var(--border); border-radius:var(--radius-sm); padding:1.2rem 1.5rem; display:flex; align-items:center; gap:1.2rem; flex-wrap:wrap;">
-          <div style="font-size:1.8rem; font-weight:900; color:var(--eh-teal); flex-shrink:0;">75%</div>
+          <div style="font-size:1.8rem; font-weight:900; color:var(--eh-purple); flex-shrink:0;">75%</div>
           <div style="font-size:0.82rem; color:var(--muted); line-height:1.5;">of Employment Hero customers report a reduction in HR admin time within the first 3 months of going live.</div>
         </div>
       </div>
@@ -990,7 +977,7 @@
           </div>
           <div style="display:flex; align-items:center; gap:8px; margin-top:6px;">
             <div class="pkg-price-min" style="text-decoration:line-through; color:var(--muted);">was $32</div>
-            <div style="background:rgba(0,179,164,0.2); color:var(--eh-teal); font-size:0.68rem; font-weight:700; padding:2px 8px; border-radius:999px;">Save $5/ee</div>
+            <div style="background:rgba(186,252,88,0.15); color:var(--eh-green); font-size:0.68rem; font-weight:700; padding:2px 8px; border-radius:999px;">Save $5/ee</div>
           </div>
           <div class="pkg-wg-price">★ World Gym preferred rate</div>
         </div>
@@ -1031,7 +1018,7 @@
             <div class="pkg-price-per">/employee/month</div>
           </div>
           <div style="display:flex; align-items:center; gap:6px; margin-top:6px;">
-            <span style="font-size:1.1rem; font-weight:900; color:var(--wg-gold-l);">+$200</span>
+            <span style="font-size:1.1rem; font-weight:900; color:var(--eh-amber);">+$200</span>
             <span style="font-size:0.75rem; color:var(--muted);">flat fee/month for HR Advisory</span>
           </div>
           <div class="pkg-wg-price">★ World Gym preferred rate</div>
@@ -1073,31 +1060,31 @@
     <div class="features-layout">
       <div class="feat-tabs">
         <div class="feat-tab active" onclick="showTab('onboarding',this)">
-          <div class="feat-tab-icon" style="background:rgba(76,60,207,0.15);">🚀</div>
+          <div class="feat-tab-icon" style="background:rgba(165,105,255,0.12);">🚀</div>
           <div class="feat-tab-text"><span class="feat-tab-name">Onboarding</span><span class="feat-tab-sub">New hire experience</span></div>
         </div>
         <div class="feat-tab" onclick="showTab('compliance',this)">
-          <div class="feat-tab-icon" style="background:rgba(227,24,55,0.15);">⚖️</div>
+          <div class="feat-tab-icon" style="background:rgba(204,0,0,0.12);">⚖️</div>
           <div class="feat-tab-text"><span class="feat-tab-name">Compliance</span><span class="feat-tab-sub">Stay legally protected</span></div>
         </div>
         <div class="feat-tab" onclick="showTab('time',this)">
-          <div class="feat-tab-icon" style="background:rgba(0,179,164,0.15);">⏱️</div>
+          <div class="feat-tab-icon" style="background:rgba(64,209,255,0.1);">⏱️</div>
           <div class="feat-tab-text"><span class="feat-tab-name">Time &amp; Rostering</span><span class="feat-tab-sub">Shifts &amp; attendance</span></div>
         </div>
         <div class="feat-tab" onclick="showTab('engagement',this)">
-          <div class="feat-tab-icon" style="background:rgba(201,168,76,0.15);">💪</div>
+          <div class="feat-tab-icon" style="background:rgba(186,252,88,0.1);">💪</div>
           <div class="feat-tab-text"><span class="feat-tab-name">Engagement</span><span class="feat-tab-sub">Retain your best people</span></div>
         </div>
         <div class="feat-tab" onclick="showTab('recruitment',this)">
-          <div class="feat-tab-icon" style="background:rgba(76,60,207,0.15);">🎯</div>
+          <div class="feat-tab-icon" style="background:rgba(165,105,255,0.12);">🎯</div>
           <div class="feat-tab-text"><span class="feat-tab-name">Recruitment</span><span class="feat-tab-sub">Hire smarter, faster</span></div>
         </div>
         <div class="feat-tab" onclick="showTab('payroll',this)">
-          <div class="feat-tab-icon" style="background:rgba(0,179,164,0.15);">💳</div>
+          <div class="feat-tab-icon" style="background:rgba(64,209,255,0.1);">💳</div>
           <div class="feat-tab-text"><span class="feat-tab-name">Payroll</span><span class="feat-tab-sub">Automated &amp; compliant</span></div>
         </div>
         <div class="feat-tab" onclick="showTab('insights',this)">
-          <div class="feat-tab-icon" style="background:rgba(227,24,55,0.15);">📊</div>
+          <div class="feat-tab-icon" style="background:rgba(204,0,0,0.12);">📊</div>
           <div class="feat-tab-text"><span class="feat-tab-name">Reporting &amp; Insights</span><span class="feat-tab-sub">Data to drive decisions</span></div>
         </div>
       </div>
@@ -1343,27 +1330,27 @@
 
     <div class="steps-grid">
       <div class="step-card">
-        <div style="font-size:2.5rem; font-weight:900; color:rgba(227,24,55,0.12); position:absolute; top:1rem; right:1.2rem; line-height:1;">01</div>
-        <div style="width:44px; height:44px; border-radius:10px; background:rgba(227,24,55,0.15); display:flex; align-items:center; justify-content:center; font-size:1.3rem; margin-bottom:1rem;">📞</div>
-        <h4 style="font-size:0.95rem; font-weight:800; margin-bottom:0.4rem;">Discovery Call</h4>
+        <div style="font-size:2.5rem; font-weight:900; color:rgba(204,0,0,0.12); position:absolute; top:1rem; right:1.2rem; line-height:1;">01</div>
+        <div style="width:44px; height:44px; border-radius:10px; background:rgba(204,0,0,0.15); display:flex; align-items:center; justify-content:center; font-size:1.3rem; margin-bottom:1rem;">📞</div>
+        <h4 style="font-family:'Lexend',sans-serif; font-size:0.95rem; font-weight:800; margin-bottom:0.4rem;">Discovery Call</h4>
         <p>A 30-min call with your World Gym account manager to scope your franchise setup, headcount, and which plan tier suits your current operation.</p>
       </div>
       <div class="step-card">
-        <div style="font-size:2.5rem; font-weight:900; color:rgba(76,60,207,0.12); position:absolute; top:1rem; right:1.2rem; line-height:1;">02</div>
-        <div style="width:44px; height:44px; border-radius:10px; background:rgba(76,60,207,0.15); display:flex; align-items:center; justify-content:center; font-size:1.3rem; margin-bottom:1rem;">⚙️</div>
-        <h4 style="font-size:0.95rem; font-weight:800; margin-bottom:0.4rem;">Platform Configuration</h4>
+        <div style="font-size:2.5rem; font-weight:900; color:rgba(165,105,255,0.12); position:absolute; top:1rem; right:1.2rem; line-height:1;">02</div>
+        <div style="width:44px; height:44px; border-radius:10px; background:rgba(165,105,255,0.15); display:flex; align-items:center; justify-content:center; font-size:1.3rem; margin-bottom:1rem;">⚙️</div>
+        <h4 style="font-family:'Lexend',sans-serif; font-size:0.95rem; font-weight:800; margin-bottom:0.4rem;">Platform Configuration</h4>
         <p>Your EH specialist configures your account — employee data, leave types, Award rules, and World Gym pay conditions applied to your setup.</p>
       </div>
       <div class="step-card">
-        <div style="font-size:2.5rem; font-weight:900; color:rgba(0,179,164,0.12); position:absolute; top:1rem; right:1.2rem; line-height:1;">03</div>
-        <div style="width:44px; height:44px; border-radius:10px; background:rgba(0,179,164,0.15); display:flex; align-items:center; justify-content:center; font-size:1.3rem; margin-bottom:1rem;">🎓</div>
-        <h4 style="font-size:0.95rem; font-weight:800; margin-bottom:0.4rem;">Team Training</h4>
+        <div style="font-size:2.5rem; font-weight:900; color:rgba(64,209,255,0.12); position:absolute; top:1rem; right:1.2rem; line-height:1;">03</div>
+        <div style="width:44px; height:44px; border-radius:10px; background:rgba(64,209,255,0.12); display:flex; align-items:center; justify-content:center; font-size:1.3rem; margin-bottom:1rem;">🎓</div>
+        <h4 style="font-family:'Lexend',sans-serif; font-size:0.95rem; font-weight:800; margin-bottom:0.4rem;">Team Training</h4>
         <p>A live training session for you and your managers — covering the platform, employee app, and day-to-day workflows relevant to a gym franchise.</p>
       </div>
       <div class="step-card">
-        <div style="font-size:2.5rem; font-weight:900; color:rgba(201,168,76,0.12); position:absolute; top:1rem; right:1.2rem; line-height:1;">04</div>
-        <div style="width:44px; height:44px; border-radius:10px; background:rgba(201,168,76,0.15); display:flex; align-items:center; justify-content:center; font-size:1.3rem; margin-bottom:1rem;">🚀</div>
-        <h4 style="font-size:0.95rem; font-weight:800; margin-bottom:0.4rem;">Go Live</h4>
+        <div style="font-size:2.5rem; font-weight:900; color:rgba(255,160,0,0.12); position:absolute; top:1rem; right:1.2rem; line-height:1;">04</div>
+        <div style="width:44px; height:44px; border-radius:10px; background:rgba(255,160,0,0.15); display:flex; align-items:center; justify-content:center; font-size:1.3rem; margin-bottom:1rem;">🚀</div>
+        <h4 style="font-family:'Lexend',sans-serif; font-size:0.95rem; font-weight:800; margin-bottom:0.4rem;">Go Live</h4>
         <p>Your team is on the platform, your first pay run is scheduled, and you have a named support contact. You're operational — and in control.</p>
       </div>
     </div>
@@ -1446,6 +1433,49 @@
   }, { threshold: 0.3 });
 
   document.querySelectorAll('.roi-metrics-grid').forEach(el => ringObserver.observe(el));
+
+  // ─── SCROLL NAV DOTS ───
+  const snapSections = Array.from(document.querySelectorAll('section'));
+  const navEl = document.getElementById('scrollNav');
+  const dotLabels = ['Hero', 'Why', 'Partnership', 'Plans', 'Features', 'ROI', 'Setup', 'Contact'];
+
+  snapSections.forEach((sec, i) => {
+    const dot = document.createElement('button');
+    dot.className = 'scroll-dot';
+    dot.setAttribute('aria-label', dotLabels[i] || `Section ${i + 1}`);
+    dot.title = dotLabels[i] || `Section ${i + 1}`;
+    dot.addEventListener('click', () => sec.scrollIntoView({ behavior: 'smooth' }));
+    navEl.appendChild(dot);
+  });
+
+  const dots = () => navEl.querySelectorAll('.scroll-dot');
+
+  const dotObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        const idx = snapSections.indexOf(entry.target);
+        dots().forEach((d, i) => d.classList.toggle('active', i === idx));
+      }
+    });
+  }, { threshold: 0.4 });
+
+  snapSections.forEach(s => dotObserver.observe(s));
+
+  // ─── KEYBOARD SNAP ───
+  document.addEventListener('keydown', (e) => {
+    if (['ArrowDown', 'PageDown', 'ArrowUp', 'PageUp'].includes(e.key)) {
+      const activeDot = navEl.querySelector('.scroll-dot.active');
+      const allDots = Array.from(dots());
+      const idx = allDots.indexOf(activeDot);
+      if (e.key === 'ArrowDown' || e.key === 'PageDown') {
+        e.preventDefault();
+        if (idx < snapSections.length - 1) snapSections[idx + 1].scrollIntoView({ behavior: 'smooth' });
+      } else {
+        e.preventDefault();
+        if (idx > 0) snapSections[idx - 1].scrollIntoView({ behavior: 'smooth' });
+      }
+    }
+  });
 </script>
 </body>
 </html>
