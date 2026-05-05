@@ -293,6 +293,13 @@
 
     /* ─── IMPACT SECTION ─── */
     .impact-section { background: var(--dark2); }
+    .impact-context {
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: 2rem; margin: 2rem 0 3rem;
+    }
+    .impact-context p { font-size: 1rem; color: var(--text); line-height: 1.75; }
+    .impact-context-secondary { color: var(--muted) !important; }
+    @media (max-width: 900px) { .impact-context { grid-template-columns: 1fr; } }
     .impact-grid {
       display: grid;
       grid-template-columns: repeat(4, 1fr);
@@ -875,10 +882,13 @@
 
 <!-- ─── IMPACT ─── -->
 <section class="impact-section" id="impact">
-  <div class="section-inner" style="text-align:center;">
+  <div class="section-inner">
     <span class="section-tag" style="color:var(--wg-red);">Why this matters</span>
     <h2 class="section-heading">The impact across the network</h2>
-    <p class="section-sub" style="margin:0 auto 3rem;">World Gym franchises using the Peak Performance Packages report significant operational improvements.</p>
+    <div class="impact-context">
+      <p>Managing people in a fitness franchise is genuinely complex. Casual workforces, high turnover, shift-based rosters, Award compliance, and the pressure of running a business where your staff <em>are</em> your product — it demands more than generic HR software.</p>
+      <p class="impact-context-secondary">World Gym Australia selected Employment Hero as the network's designated HR and payroll platform because it covers the full employment lifecycle in a single system — with the compliance infrastructure Australian franchises need built in by default.</p>
+    </div>
     <div class="impact-grid">
       <div class="impact-card">
         <div class="impact-num">75<span>%</span></div>
