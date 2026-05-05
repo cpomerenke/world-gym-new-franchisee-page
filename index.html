@@ -88,7 +88,7 @@
     }
     .hero-stats-track {
       display: flex; gap: 0;
-      animation: statsScroll 20s linear infinite;
+      animation: statsScroll 35s linear infinite;
       width: max-content;
     }
     .hero-stats:hover .hero-stats-track { animation-play-state: paused; }
@@ -98,7 +98,7 @@
     }
     .hero-stat {
       flex-shrink: 0;
-      width: 200px; padding: 0 1.8rem;
+      width: 260px; padding: 0 2.8rem;
       border-right: 1px solid var(--border);
     }
     .hero-stat:last-child { border-right: 1px solid var(--border); }
@@ -215,10 +215,12 @@
     .platform-preview {
       border-radius: 18px; overflow: hidden;
       box-shadow: 0 32px 80px rgba(0,0,0,0.5), 0 0 0 1px rgba(255,255,255,0.06);
-      transform: perspective(1200px) rotateY(-5deg) rotateX(2deg);
-      transition: transform .4s ease;
+      transition: transform .4s ease, box-shadow .4s ease;
     }
-    .platform-preview:hover { transform: perspective(1200px) rotateY(-1deg) rotateX(0.5deg); }
+    .platform-preview:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 44px 100px rgba(0,0,0,0.6), 0 0 0 1px rgba(255,255,255,0.08);
+    }
 
     /* ─── HERO STATS ─── */
     .hero-stat-num { font-family: 'Lexend', sans-serif; font-size: 2rem; font-weight: 900; color: #fff; letter-spacing: -0.03em; }
@@ -626,7 +628,7 @@
       .hero-text { text-align: center; }
       .hero-sub { margin: 0 auto 2.5rem; }
       .hero-actions { justify-content: center; }
-      .hero-stats-track { animation-duration: 14s; }
+      .hero-stats-track { animation-duration: 25s; }
     }
     @media (max-width: 900px) {
       .why-grid, .roi-grid, .features-layout, .partnership-grid { grid-template-columns: 1fr; }
@@ -682,11 +684,11 @@
       <div class="hero-text">
         <h1 class="hero-heading">
           Your franchise<br>
-          <span class="red">operation</span><br>
-          <span class="teal">backbone</span>
+          <span class="red">performance</span><br>
+          <span class="teal">engine</span>
         </h1>
         <p class="hero-sub">
-          Employment Hero is the designated HR and payroll platform for World Gym Australia franchises. This guide walks you through what's included, how it's configured for your operation, and how to get set up.
+          The platform behind World Gym Australia franchises — driving people, pay, and compliance from day one, so you can focus on performance where it really matters.
         </p>
         <div class="hero-actions">
           <a href="#start" class="btn-primary">Begin onboarding →</a>
@@ -698,7 +700,7 @@
       <div class="hero-visual">
         <div class="platform-preview">
           <img
-            src="https://employmenthero.com/wp-content/uploads/2025/06/2_Home_Business_AllInOne.png"
+            src="C:/Users/CourtneyPomerenke/Downloads/Dashboard_Detailed (1).webp"
             alt="Employment Hero platform dashboard"
             style="width:100%; display:block; border-radius:18px;"
           />
@@ -727,10 +729,6 @@
           <div class="hero-stat-label">Less HR admin time reported</div>
         </div>
         <div class="hero-stat">
-          <div class="hero-stat-num">6</div>
-          <div class="hero-stat-label">Countries Employment Hero operates in</div>
-        </div>
-        <div class="hero-stat">
           <div class="hero-stat-num">10<span>+</span></div>
           <div class="hero-stat-label">Years built for Australian compliance</div>
         </div>
@@ -750,10 +748,6 @@
         <div class="hero-stat">
           <div class="hero-stat-num">75<span>%</span></div>
           <div class="hero-stat-label">Less HR admin time reported</div>
-        </div>
-        <div class="hero-stat">
-          <div class="hero-stat-num">6</div>
-          <div class="hero-stat-label">Countries Employment Hero operates in</div>
         </div>
         <div class="hero-stat">
           <div class="hero-stat-num">10<span>+</span></div>
