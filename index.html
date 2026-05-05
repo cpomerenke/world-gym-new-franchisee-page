@@ -295,10 +295,31 @@
     .impact-section { background: var(--dark2); }
     .impact-context {
       display: grid; grid-template-columns: 1fr 1fr;
-      gap: 2rem; margin: 2rem 0 3rem;
+      gap: 1.2rem; margin: 2rem 0 3rem;
     }
-    .impact-context p { font-size: 1rem; color: var(--text); line-height: 1.75; }
-    .impact-context-secondary { color: var(--muted) !important; }
+    .impact-context-challenge {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-left: 3px solid var(--wg-red);
+      border-radius: var(--radius);
+      padding: 1.8rem 2rem;
+    }
+    .impact-context-challenge .ctx-label {
+      font-size: 0.68rem; font-weight: 700; letter-spacing: 0.1em;
+      text-transform: uppercase; color: var(--wg-red); margin-bottom: 0.8rem;
+    }
+    .impact-context-challenge p { font-size: 0.95rem; color: var(--text); line-height: 1.75; }
+    .impact-context-solution {
+      background: linear-gradient(135deg, rgba(118,34,215,0.18), rgba(165,105,255,0.08));
+      border: 1px solid rgba(165,105,255,0.25);
+      border-radius: var(--radius);
+      padding: 1.8rem 2rem;
+    }
+    .impact-context-solution .ctx-label {
+      font-size: 0.68rem; font-weight: 700; letter-spacing: 0.1em;
+      text-transform: uppercase; color: var(--eh-purple); margin-bottom: 0.8rem;
+    }
+    .impact-context-solution p { font-size: 0.95rem; color: var(--muted); line-height: 1.75; }
     @media (max-width: 900px) { .impact-context { grid-template-columns: 1fr; } }
     .impact-grid {
       display: grid;
@@ -886,8 +907,14 @@
     <span class="section-tag" style="color:var(--wg-red);">Why this matters</span>
     <h2 class="section-heading">The impact across the network</h2>
     <div class="impact-context">
-      <p>Managing people in a fitness franchise is genuinely complex. Casual workforces, high turnover, shift-based rosters, Award compliance, and the pressure of running a business where your staff <em>are</em> your product — it demands more than generic HR software.</p>
-      <p class="impact-context-secondary">World Gym Australia selected Employment Hero as the network's designated HR and payroll platform because it covers the full employment lifecycle in a single system — with the compliance infrastructure Australian franchises need built in by default.</p>
+      <div class="impact-context-challenge">
+        <div class="ctx-label">The challenge</div>
+        <p>Managing people in a fitness franchise is genuinely complex. Casual workforces, high turnover, shift-based rosters, Award compliance, and the pressure of running a business where your staff <em>are</em> your product — it demands more than generic HR software.</p>
+      </div>
+      <div class="impact-context-solution">
+        <div class="ctx-label">Why World Gym chose Employment Hero</div>
+        <p>World Gym Australia selected Employment Hero as the network's designated HR and payroll platform because it covers the full employment lifecycle in a single system — with the compliance infrastructure Australian franchises need built in by default.</p>
+      </div>
     </div>
     <div class="impact-grid">
       <div class="impact-card">
