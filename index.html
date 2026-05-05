@@ -210,65 +210,15 @@
     }
     .btn-secondary:hover { background: rgba(255,255,255,0.1); border-color: rgba(255,255,255,0.2); }
 
-    /* ─── PLATFORM PREVIEW CARD ─── */
+    /* ─── PLATFORM SCREENSHOT ─── */
     .hero-visual { animation: fadeInUp 0.8s ease 0.35s both; }
     .platform-preview {
-      background: var(--card); border: 1px solid rgba(255,255,255,0.12);
       border-radius: 18px; overflow: hidden;
-      box-shadow: 0 32px 80px rgba(0,0,0,0.6), 0 0 0 1px rgba(255,255,255,0.05);
-      transform: perspective(1200px) rotateY(-6deg) rotateX(2deg);
+      box-shadow: 0 32px 80px rgba(0,0,0,0.5), 0 0 0 1px rgba(255,255,255,0.06);
+      transform: perspective(1200px) rotateY(-5deg) rotateX(2deg);
       transition: transform .4s ease;
     }
-    .platform-preview:hover { transform: perspective(1200px) rotateY(-2deg) rotateX(1deg); }
-    .preview-chrome {
-      background: var(--dark3); padding: 10px 16px;
-      display: flex; align-items: center; gap: 10px;
-      border-bottom: 1px solid var(--border);
-    }
-    .preview-chrome-dots { display: flex; gap: 5px; }
-    .preview-chrome-dot { width: 10px; height: 10px; border-radius: 50%; }
-    .preview-chrome-title {
-      flex: 1; text-align: center; font-size: 0.68rem; color: var(--muted);
-    }
-    .preview-body { padding: 1rem 1.2rem; }
-    .preview-greeting { font-size: 0.72rem; color: var(--muted); margin-bottom: 0.9rem; }
-    .preview-greeting span { color: var(--text); font-weight: 600; }
-    .preview-metrics {
-      display: grid; grid-template-columns: repeat(3, 1fr);
-      gap: 0.5rem; margin-bottom: 1rem;
-    }
-    .preview-metric-tile {
-      border-radius: 8px; padding: 0.7rem 0.5rem; text-align: center;
-    }
-    .preview-metric-tile.dark { background: var(--dark2); }
-    .preview-metric-tile.teal { background: rgba(64,209,255,0.08); border: 1px solid rgba(64,209,255,0.18); }
-    .preview-metric-tile.gold { background: rgba(186,252,88,0.08); border: 1px solid rgba(186,252,88,0.15); }
-    .preview-metric-num { font-size: 1.3rem; font-weight: 900; color: #fff; line-height: 1; }
-    .preview-metric-num.teal { font-size: 0.72rem; color: var(--eh-sky); }
-    .preview-metric-num.gold { color: var(--eh-green); }
-    .preview-metric-label { font-size: 0.6rem; color: var(--muted); margin-top: 3px; }
-    .preview-section-label {
-      font-size: 0.63rem; font-weight: 700; text-transform: uppercase;
-      letter-spacing: 0.08em; color: var(--muted); margin-bottom: 0.5rem;
-    }
-    .preview-roster-row {
-      display: flex; align-items: center; gap: 0.6rem;
-      padding: 0.45rem 0; border-bottom: 1px solid rgba(255,255,255,0.04);
-    }
-    .preview-roster-row:last-of-type { border-bottom: none; }
-    .preview-avatar {
-      width: 24px; height: 24px; border-radius: 50%; flex-shrink: 0;
-    }
-    .preview-roster-name { font-size: 0.73rem; color: var(--text); flex: 1; }
-    .preview-shift-bar { height: 5px; border-radius: 999px; }
-    .preview-shift-time { font-size: 0.6rem; color: var(--muted); min-width: 52px; text-align: right; }
-    .preview-notification {
-      margin-top: 0.8rem;
-      background: rgba(64,209,255,0.07); border: 1px solid rgba(64,209,255,0.18);
-      border-radius: 8px; padding: 0.55rem 0.8rem;
-      display: flex; align-items: center; gap: 0.5rem;
-      font-size: 0.68rem; color: var(--eh-sky);
-    }
+    .platform-preview:hover { transform: perspective(1200px) rotateY(-1deg) rotateX(0.5deg); }
 
     /* ─── HERO STATS ─── */
     .hero-stat-num { font-family: 'Lexend', sans-serif; font-size: 2rem; font-weight: 900; color: #fff; letter-spacing: -0.03em; }
@@ -744,58 +694,14 @@
         </div>
       </div>
 
-      <!-- Right: Platform preview card -->
+      <!-- Right: EH platform screenshot -->
       <div class="hero-visual">
         <div class="platform-preview">
-          <div class="preview-chrome">
-            <div class="preview-chrome-dots">
-              <div class="preview-chrome-dot" style="background:#FF5F57;"></div>
-              <div class="preview-chrome-dot" style="background:#FEBC2E;"></div>
-              <div class="preview-chrome-dot" style="background:#27C840;"></div>
-            </div>
-            <div class="preview-chrome-title">Employment Hero — World Gym</div>
-            <div style="width:42px;"></div>
-          </div>
-          <div class="preview-body">
-            <div class="preview-greeting">Good morning, <span>Sarah 👋</span></div>
-            <div class="preview-metrics">
-              <div class="preview-metric-tile dark">
-                <div class="preview-metric-num">14</div>
-                <div class="preview-metric-label">Staff active</div>
-              </div>
-              <div class="preview-metric-tile teal" style="background:rgba(64,209,255,0.08);border:1px solid rgba(64,209,255,0.2);">
-                <div class="preview-metric-num" style="font-size:0.68rem; font-weight:900; color:var(--eh-sky);">✓ READY</div>
-                <div class="preview-metric-label">Next payroll</div>
-              </div>
-              <div class="preview-metric-tile gold" style="background:rgba(186,252,88,0.08);border:1px solid rgba(186,252,88,0.18);">
-                <div class="preview-metric-num" style="color:var(--eh-green);">2</div>
-                <div class="preview-metric-label">Onboarding</div>
-              </div>
-            </div>
-            <div class="preview-section-label">Today's Roster</div>
-            <div class="preview-roster-row">
-              <div class="preview-avatar" style="background:linear-gradient(135deg,var(--wg-red),var(--eh-purple));"></div>
-              <div class="preview-roster-name">Sarah K.</div>
-              <div class="preview-shift-bar" style="width:50px;background:rgba(64,209,255,0.45);"></div>
-              <div class="preview-shift-time">9am – 5pm</div>
-            </div>
-            <div class="preview-roster-row">
-              <div class="preview-avatar" style="background:linear-gradient(135deg,var(--eh-purple),var(--eh-sky));"></div>
-              <div class="preview-roster-name">Mike T.</div>
-              <div class="preview-shift-bar" style="width:40px;background:rgba(165,105,255,0.55);"></div>
-              <div class="preview-shift-time">12pm – 8pm</div>
-            </div>
-            <div class="preview-roster-row">
-              <div class="preview-avatar" style="background:linear-gradient(135deg,var(--eh-amber),var(--wg-red));"></div>
-              <div class="preview-roster-name">Jessica L.</div>
-              <div class="preview-shift-bar" style="width:55px;background:rgba(255,160,0,0.45);"></div>
-              <div class="preview-shift-time">6am – 2pm</div>
-            </div>
-            <div class="preview-notification" style="background:rgba(64,209,255,0.07);border:1px solid rgba(64,209,255,0.18);color:var(--eh-sky);">
-              <span>✅</span>
-              <span>Pay run complete — 14 employees paid</span>
-            </div>
-          </div>
+          <img
+            src="https://employmenthero.com/wp-content/uploads/2025/06/2_Home_Business_AllInOne.png"
+            alt="Employment Hero platform dashboard"
+            style="width:100%; display:block; border-radius:18px;"
+          />
         </div>
       </div>
     </div>
