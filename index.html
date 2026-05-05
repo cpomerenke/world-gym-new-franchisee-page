@@ -528,29 +528,7 @@
     /* ─── PACKAGES ─── */
     .packages-section { background: var(--dark2); }
 
-    /* Visual module comparison strip */
-    .pkg-module-compare {
-      display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 2.5rem;
-    }
-    .pkg-module-strip {
-      background: var(--card); border: 1px solid var(--border); border-radius: var(--radius); padding: 1.4rem;
-    }
-    .pkg-module-strip.featured { border-color: var(--wg-red); box-shadow: 0 0 0 1px var(--wg-red); }
-    .pkg-strip-name { font-size: 0.9rem; font-weight: 800; color: #fff; margin-bottom: 1rem; }
-    .pkg-strip-name .accent-red { color: var(--wg-red); }
-    .pkg-strip-name .accent-purple { color: var(--eh-lavender); }
-    .module-blocks { display: flex; flex-direction: column; gap: 0.45rem; }
-    .module-block {
-      display: flex; align-items: center; gap: 0.7rem;
-      padding: 0.55rem 0.8rem; border-radius: 8px; font-size: 0.78rem; font-weight: 600;
-    }
-    .module-block.purple { background: rgba(165,105,255,0.12); color: var(--eh-lavender); }
-    .module-block.teal   { background: rgba(64,209,255,0.08); color: var(--eh-sky); }
-    .module-block.clock  { background: rgba(64,209,255,0.06); color: #85dcf0; }
-    .module-block.gold   { background: rgba(255,160,0,0.1); color: var(--eh-amber); }
-    .module-block-icon { font-size: 1rem; flex-shrink: 0; }
-
-    .packages-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.5rem; align-items: start; }
+    .packages-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.2rem; align-items: start; }
     .pkg-card {
       background: var(--card); border: 1px solid var(--border);
       border-radius: var(--radius); overflow: hidden; position: relative;
@@ -558,35 +536,35 @@
     }
     .pkg-card.visible { opacity: 1; transform: translateY(0); transition: opacity .5s ease, transform .5s ease, border-color .2s, box-shadow .2s; }
     .pkg-card:hover { transform: translateY(-4px); box-shadow: 0 12px 40px rgba(0,0,0,0.3); }
-    .pkg-card.featured { border-color: var(--wg-red); box-shadow: 0 0 0 1px var(--wg-red), 0 8px 32px rgba(204,0,0,0.2); transform: scale(1.02); }
-    .pkg-card.featured.visible:hover { transform: scale(1.02) translateY(-4px); }
-    .pkg-featured-label { background: var(--wg-red); color: #fff; font-size: 0.65rem; font-weight: 800; letter-spacing: 0.1em; text-transform: uppercase; text-align: center; padding: 5px; }
-    .pkg-header { padding: 1.8rem 1.8rem 1.5rem; border-bottom: 1px solid var(--border); }
-    .pkg-tier { font-size: 0.7rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); margin-bottom: 0.5rem; }
-    .pkg-name { font-family: 'Lexend', sans-serif; font-size: 1.4rem; font-weight: 900; margin-bottom: 0.8rem; }
+    .pkg-card.featured { border-color: var(--wg-red); box-shadow: 0 0 0 1px var(--wg-red), 0 8px 32px rgba(204,0,0,0.2); transform: scale(1.01); }
+    .pkg-card.featured.visible:hover { transform: scale(1.01) translateY(-4px); }
+    .pkg-featured-label { background: var(--wg-red); color: #fff; font-size: 0.62rem; font-weight: 800; letter-spacing: 0.1em; text-transform: uppercase; text-align: center; padding: 4px; }
+    .pkg-header { padding: 1.2rem 1.4rem 1rem; border-bottom: 1px solid var(--border); }
+    .pkg-tier { font-size: 0.65rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); margin-bottom: 0.3rem; }
+    .pkg-name { font-family: 'Lexend', sans-serif; font-size: 1.2rem; font-weight: 900; margin-bottom: 0.4rem; }
     .pkg-name .accent-red { color: var(--wg-red); }
     .pkg-name .accent-purple { color: var(--eh-lavender); }
-    .pkg-desc { font-size: 0.8rem; color: var(--muted); line-height: 1.5; margin-bottom: 1.2rem; }
+    .pkg-desc { font-size: 0.76rem; color: var(--muted); line-height: 1.4; margin-bottom: 0.7rem; }
     .pkg-price { display: flex; align-items: baseline; gap: 4px; }
-    .pkg-price-num { font-size: 2rem; font-weight: 900; color: #fff; }
-    .pkg-price-per { font-size: 0.75rem; color: var(--muted); }
-    .pkg-price-min { font-size: 0.7rem; color: var(--muted); margin-top: 0.2rem; }
+    .pkg-price-num { font-size: 1.7rem; font-weight: 900; color: #fff; }
+    .pkg-price-per { font-size: 0.72rem; color: var(--muted); }
+    .pkg-price-min { font-size: 0.68rem; color: var(--muted); margin-top: 0.15rem; }
     .pkg-wg-price {
       display: inline-flex; align-items: center; gap: 6px;
       background: rgba(255,160,0,0.1); border: 1px solid rgba(255,160,0,0.25);
-      border-radius: 6px; padding: 4px 10px; margin-top: 0.6rem;
-      font-size: 0.72rem; color: var(--eh-amber); font-weight: 600;
+      border-radius: 6px; padding: 3px 8px; margin-top: 0.4rem;
+      font-size: 0.68rem; color: var(--eh-amber); font-weight: 600;
     }
-    .pkg-body { padding: 1.5rem 1.8rem; }
-    .pkg-section-label { font-size: 0.68rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: var(--muted); margin: 1.2rem 0 0.6rem; }
-    .pkg-features { list-style: none; display: flex; flex-direction: column; gap: 0.6rem; }
-    .pkg-features li { display: flex; align-items: flex-start; gap: 10px; font-size: 0.82rem; color: var(--text); line-height: 1.4; }
-    .feat-check { color: var(--eh-green); font-size: 0.75rem; margin-top: 2px; flex-shrink: 0; }
+    .pkg-body { padding: 1rem 1.4rem; }
+    .pkg-section-label { font-size: 0.62rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: var(--muted); margin: 0.8rem 0 0.4rem; }
+    .pkg-features { list-style: none; display: flex; flex-direction: column; gap: 0.35rem; }
+    .pkg-features li { display: flex; align-items: flex-start; gap: 8px; font-size: 0.78rem; color: var(--text); line-height: 1.35; }
+    .feat-check { color: var(--eh-green); font-size: 0.72rem; margin-top: 2px; flex-shrink: 0; }
     .feat-check.red { color: var(--wg-red); }
     .pkg-cta {
-      display: block; margin: 1.5rem 1.8rem;
-      padding: 12px; border-radius: 8px; text-align: center;
-      font-weight: 700; font-size: 0.85rem; text-decoration: none; transition: all .2s;
+      display: block; margin: 0.9rem 1.4rem 1.2rem;
+      padding: 10px; border-radius: 8px; text-align: center;
+      font-weight: 700; font-size: 0.82rem; text-decoration: none; transition: all .2s;
     }
     .pkg-cta.red { background: var(--wg-red); color: #fff; }
     .pkg-cta.red:hover { background: var(--wg-red-d); }
@@ -1142,21 +1120,15 @@
             <li><span class="feat-check red">✓</span>Unfair dismissal risk advice</li>
             <li><span class="feat-check red">✓</span>Workplace investigation &amp; redundancy guidance</li>
           </ul>
-          <p class="pkg-section-label" style="margin-top:1.5rem;">Also includes — same as Premium</p>
-          <ul class="pkg-features">
-            <li><span class="feat-check">✓</span>Full HR Elite feature set</li>
-            <li><span class="feat-check">✓</span>Full Payroll Core feature set</li>
-            <li><span class="feat-check">✓</span>Full Time &amp; Attendance feature set</li>
-          </ul>
+          <p class="pkg-section-label" style="margin-top:0.8rem;">Plus everything in Premium</p>
+          <p style="font-size:0.76rem; color:var(--muted); line-height:1.4;">Full HR Elite, Payroll Core and Time &amp; Attendance — all included.</p>
         </div>
         <a href="#start" class="pkg-cta red">Activate Pro →</a>
       </div>
 
     </div>
 
-    <div style="margin-top:1.5rem; background:rgba(255,255,255,0.03); border:1px solid var(--border); border-radius:var(--radius-sm); padding:1.2rem 1.8rem; display:flex; align-items:center; gap:1rem; flex-wrap:wrap;">
-      <span style="font-size:0.8rem; color:var(--muted); line-height:1.6; flex:1;">Both packages are available exclusively to World Gym Australia franchisees at negotiated network rates. HR Advisory in Peak Performance Pro provides a dedicated safety net — particularly valuable when managing performance issues, disciplinary processes, or complex Award questions without in-house HR expertise.</span>
-    </div>
+    <p style="margin-top:1rem; font-size:0.72rem; color:var(--muted); line-height:1.5; max-width:680px;">Available exclusively to World Gym Australia franchisees at negotiated network rates. HR Advisory in Pro is particularly valuable for performance management, disciplinary processes, and complex Award questions.</p>
   </div>
 </section>
 
