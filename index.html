@@ -667,6 +667,28 @@
     .roi-benefit h4 { font-family: 'Lexend', sans-serif; font-size: 0.9rem; font-weight: 700; margin-bottom: 0.3rem; }
     .roi-benefit p { font-size: 0.78rem; color: var(--muted); line-height: 1.5; }
 
+    .setup-detail-grid {
+      display: grid; grid-template-columns: repeat(3,1fr);
+      gap: 0; border-top: 1px solid var(--border); margin-top: 2.5rem;
+    }
+    .setup-detail {
+      display: flex; gap: 1.2rem; padding: 2rem 2rem 0 0;
+    }
+    .setup-detail + .setup-detail { border-left: 1px solid var(--border); padding-left: 2rem; }
+    .setup-detail-num {
+      font-family: 'Lexend', sans-serif; font-size: 1.6rem; font-weight: 900;
+      color: rgba(255,255,255,0.08); line-height: 1; flex-shrink: 0; padding-top: 2px;
+    }
+    .setup-detail-title {
+      font-family: 'Lexend', sans-serif; font-size: 0.9rem; font-weight: 700;
+      color: var(--text); margin-bottom: 0.4rem;
+    }
+    .setup-detail-desc { font-size: 0.82rem; color: var(--muted); line-height: 1.65; }
+    @media (max-width: 900px) {
+      .setup-detail-grid { grid-template-columns: 1fr; }
+      .setup-detail + .setup-detail { border-left: none; border-top: 1px solid var(--border); padding-left: 0; padding-top: 1.5rem; margin-top: 1.5rem; }
+    }
+
     /* ─── SETUP TIMELINE ─── */
     .start-section { background: var(--dark); }
 
@@ -1425,9 +1447,8 @@
   <div class="section-inner">
     <span class="section-tag">Your setup process</span>
     <h2 class="section-heading">Getting started is as easy as 1, 2, 3</h2>
-    <p class="section-sub">Employment Hero manages the onboarding process alongside you. Most franchises are fully operational within 10–12 weeks of their first call.</p>
+    <p class="section-sub">You lead the implementation — Employment Hero's team is with you throughout. Most franchises are fully operational within 10–12 weeks of their first call.</p>
 
-    <!-- Visual timeline -->
     <div class="timeline-wrap">
       <div class="timeline-track">
         <div class="timeline-rail"></div>
@@ -1452,24 +1473,27 @@
       </div>
     </div>
 
-    <div class="steps-grid" style="grid-template-columns: repeat(3,1fr);">
-      <div class="step-card">
-        <div style="font-size:2.5rem; font-weight:900; color:rgba(204,0,0,0.12); position:absolute; top:1rem; right:1.2rem; line-height:1;">01</div>
-        <div style="width:44px; height:44px; border-radius:10px; background:rgba(204,0,0,0.15); display:flex; align-items:center; justify-content:center; font-size:1.3rem; margin-bottom:1rem;">📞</div>
-        <h4 style="font-family:'Lexend',sans-serif; font-size:0.95rem; font-weight:800; margin-bottom:0.4rem;">Discovery Call</h4>
-        <p>A 60-minute call with Employment Hero to scope your franchise setup, headcount, Award requirements, and which plan tier fits your operation.</p>
+    <div class="setup-detail-grid">
+      <div class="setup-detail">
+        <div class="setup-detail-num">01</div>
+        <div>
+          <div class="setup-detail-title">Discovery Call</div>
+          <div class="setup-detail-desc">A 60-minute scoping call with Employment Hero to align on your franchise structure, headcount, Awards, and plan tier.</div>
+        </div>
       </div>
-      <div class="step-card">
-        <div style="font-size:2.5rem; font-weight:900; color:rgba(165,105,255,0.12); position:absolute; top:1rem; right:1.2rem; line-height:1;">02</div>
-        <div style="width:44px; height:44px; border-radius:10px; background:rgba(165,105,255,0.15); display:flex; align-items:center; justify-content:center; font-size:1.3rem; margin-bottom:1rem;">⚙️</div>
-        <h4 style="font-family:'Lexend',sans-serif; font-size:0.95rem; font-weight:800; margin-bottom:0.4rem;">Platform Configuration</h4>
-        <p>You lead the setup of your account — employee data, leave types, pay conditions, and rosters — with Employment Hero's team guiding you every step of the way.</p>
+      <div class="setup-detail">
+        <div class="setup-detail-num">02</div>
+        <div>
+          <div class="setup-detail-title">Platform Configuration</div>
+          <div class="setup-detail-desc">You build out your account — employee records, pay conditions, leave policies, and rosters — with Employment Hero's implementation team available throughout.</div>
+        </div>
       </div>
-      <div class="step-card">
-        <div style="font-size:2.5rem; font-weight:900; color:rgba(64,209,255,0.12); position:absolute; top:1rem; right:1.2rem; line-height:1;">03</div>
-        <div style="width:44px; height:44px; border-radius:10px; background:rgba(64,209,255,0.12); display:flex; align-items:center; justify-content:center; font-size:1.3rem; margin-bottom:1rem;">🚀</div>
-        <h4 style="font-family:'Lexend',sans-serif; font-size:0.95rem; font-weight:800; margin-bottom:0.4rem;">Go Live</h4>
-        <p>Your team is on the platform, your first pay run is scheduled, and you're fully operational. From here, Employment Hero's standard support keeps you running.</p>
+      <div class="setup-detail">
+        <div class="setup-detail-num">03</div>
+        <div>
+          <div class="setup-detail-title">Go Live</div>
+          <div class="setup-detail-desc">Your team is active, your first pay run is confirmed, and you're operational. Employment Hero's standard support is available from day one.</div>
+        </div>
       </div>
     </div>
   </div>
